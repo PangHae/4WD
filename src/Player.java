@@ -12,7 +12,11 @@ public class Player {
         this.inv = inv;
     }
 
-
+    public void _showStatus(){
+        System.out.println("hunger: "+this.hunger);
+        System.out.println("thirst: "+this.thirst);
+        System.out.println("action: "+this.action);
+    }
     //Getter & Setter
 
 }

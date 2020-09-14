@@ -7,8 +7,9 @@ public class Inventory {
     Inventory() {
 
     }
+    public void _seeInventory(){
 
-    
+    }
 
     //getter & setter
 }
