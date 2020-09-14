@@ -8,5 +8,7 @@ public class Inventory {
 
     }
 
+    
 
+    //getter & setter
 }
