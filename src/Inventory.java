@@ -11,7 +11,7 @@ public class Inventory {
                                     };
     //counts
 
-    Inventory(int water, int food, int wood, int stone, int stoneSword, int stoneAxe, int stonePickAx) {
+    Inventory(int water, int food, int wood, int stone, int stoneSword, int stoneAxe, int stonePickAx, int meet, int fruits) {
         setStone(stone);
         setFood(food);
         setStoneAxe(stoneAxe);
@@ -19,6 +19,8 @@ public class Inventory {
         setStoneSword(stoneSword);
         setWood(wood);
         setWater(water);
+        setResource(meet, 7);
+        setResource(fruits, 8);
     }
     //getter & setter
 
@@ -47,6 +49,7 @@ public class Inventory {
     public void setStonePickAx(int stonePickAx){
         resource[6][1] = stonePickAx;
     }
+
 
     //item 번호와 갯수를 받아서 그에 해당하는 아이템 갯수 수정
     public void setResource(int mount, int itemNumber){
