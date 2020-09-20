@@ -73,15 +73,28 @@ public class Player {
         System.out.println("---------------");
     }
 
-    public void _gatheringUpdate(String name, int counts, int actionRequire){
+    public void _gatheringUpdate(String name, int counts, int actionRequire, int hungerRequire, int thirstRequire){
 
         int i = 0;
         int currentCounts;
+        
         for(i=0; i<9; i++){
             if(name.equals((this.inv.getResource())[i][0])){
                 currentCounts = (int)(this.inv.getResource())[i][1];
                 this.inv.setResource(currentCounts + counts, i);
                 this.action = this.action - actionRequire;
+                if(this.hunger < hungerRequire){
+                    this.hunger = 0;
+                }else{
+                    this.hunger = this.hunger - hungerRequire;
+                }
+
+                if(this.thirst < thirstRequire){
+                    this.thirst = 0;
+                }else{
+                    this.thirst = this.thirst - thirstRequire;
+                }
+
             }
         }
     }
