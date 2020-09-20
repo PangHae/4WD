@@ -19,11 +19,11 @@ public class Systems {
             this.cmd._commandTest();
             _nextDay();
         }else{
-            newGame();
+            _newGame();
         }
     }
 
-    private void newGame(){
+    private void _newGame(){
         System.out.println("-GameOver-");
     }
 

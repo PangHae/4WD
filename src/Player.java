@@ -17,6 +17,8 @@ public class Player {
         System.out.println("thirst: "+this.thirst);
         System.out.println("action: "+this.action);
     }
+
+    public void _gatheringUpdate(String name,int counts,int actionRequire){}
     //Getter & Setter
 
 }
