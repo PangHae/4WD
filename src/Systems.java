@@ -84,28 +84,29 @@ public class Systems {
         int currentAction = this.p1.getAction();
         String notEnoughAction = "not enough Action";
         if(command == 0){
-            System.out.println("gathering wood!!");
             if(currentAction >= 1){
-                interaction._gathering("wood", 100, 1, 3, 1);
+                System.out.println("gathering wood!!");
+                interaction._gathering("wood", 100, 1, 1,2,3, 1);
+                
             }
             else{
                 System.out.println(notEnoughAction);
             }
         }
         else if(command == 1){
-            System.out.println("gathering stone!!");
             if(currentAction >= 1){
+                System.out.println("gathering stone!!");
                 
-                interaction._gathering("stone", 100, 1, 3, 1);
+                interaction._gathering("stone", 100, 1, 1, 2, 3, 1);
             }
             else{
                 System.out.println(notEnoughAction);
             }
         }
         else if(command == 2){
-            System.out.println("gathering meet!!");
             if(currentAction >= 1){
-                interaction._gathering("meet", 100, 1, 3, 1);
+                System.out.println("gathering meet!!");
+                interaction._gathering("meet", 100, 1, 1, 2, 3, 1);
             }
             else{
                 System.out.println(notEnoughAction);
@@ -113,9 +114,9 @@ public class Systems {
 
         }
         else if(command == 3){
-            System.out.println("gathering fruits");
             if(currentAction >= 1){
-                interaction._gathering("fruits", 100, 1, 3, 1);
+                System.out.println("gathering fruits");
+                interaction._gathering("fruits", 100, 1, 1, 2, 3, 1);
             }
             else{
                 System.out.println(notEnoughAction);

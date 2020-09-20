@@ -3,6 +3,8 @@ public class Interaction{
     private String propName=null;
     private int probability= 0;
     private int actionRequire= 0;
+    private int hungerRequire = 0;
+    private int thirstRequire = 0;
     private int maximums = 0;
     private int minimums = 1;
     private Player p1;
@@ -11,15 +13,17 @@ public class Interaction{
         this.p1 = p1;
     }
 
-    public void _gathering(String propName,int probability, int actionRequire,int maximums,int minimums){
+    public void _gathering(String propName,int probability, int actionRequire,int hungerRequire,int thirstRequire, int maximums,int minimums){
         this.propName= propName;
         this.actionRequire = actionRequire;
+        this.hungerRequire = hungerRequire;
+        this.thirstRequire = thirstRequire;
         this.maximums = maximums;
         this.probability = probability;
         this.minimums= minimums;
-
+    
         int numbers = _gatheringCalculate();
-        this.p1._gatheringUpdate(this.propName, numbers, this.actionRequire);
+        this.p1._gatheringUpdate(this.propName, numbers, this.actionRequire, this.hungerRequire, this.thirstRequire);
         _reset();
     }
 
