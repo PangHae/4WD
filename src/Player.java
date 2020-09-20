@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Player {
     private int hunger;
@@ -15,10 +16,12 @@ public class Player {
     }
 
     public void _showStatus(){
+        System.out.println("---status---");
         System.out.println("hunger: "+this.hunger);
         System.out.println("thirst: "+this.thirst);
         System.out.println("action: "+this.action);
         System.out.println("fatigue: "+this.fatigue);
+        System.out.println("------------");
     }
 
     public int getHunger() {
@@ -61,9 +64,26 @@ public class Player {
         this.inv = inv;
     }
     public void _showInventory(){
-        System.out.println(inv.getResource());
+
+        System.out.println("---inventory---");
+        int i = 0;
+        for(i=0; i< 9; i++){
+            System.out.println(Arrays.toString((this.inv.getResource())[i]));
+        }
+        System.out.println("---------------");
     }
 
-    public void _gatheringUpdate(String name, int counts, int actionRequire){}
+    public void _gatheringUpdate(String name, int counts, int actionRequire){
+
+        int i = 0;
+        int currentCounts;
+        for(i=0; i<9; i++){
+            if(name.equals((this.inv.getResource())[i][0])){
+                currentCounts = (int)(this.inv.getResource())[i][1];
+                this.inv.setResource(currentCounts + counts, i);
+                this.action = this.action - actionRequire;
+            }
+        }
+    }
 
 }

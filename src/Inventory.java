@@ -5,7 +5,10 @@ public class Inventory {
                                     {"stone",0},
                                     {"stoneSword",0},
                                     {"stoneAxe",0},
-                                    {"stonePickAx",0}};
+                                    {"stonePickAx",0},
+                                    {"meet",0},
+                                    {"fruits",0}
+                                    };
     //counts
 
     Inventory(int water, int food, int wood, int stone, int stoneSword, int stoneAxe, int stonePickAx) {
@@ -43,5 +46,10 @@ public class Inventory {
     }
     public void setStonePickAx(int stonePickAx){
         resource[6][1] = stonePickAx;
+    }
+
+    //item 번호와 갯수를 받아서 그에 해당하는 아이템 갯수 수정
+    public void setResource(int mount, int itemNumber){
+        resource[itemNumber][1] = mount;
     }
 }
