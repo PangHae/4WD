@@ -43,7 +43,7 @@ public class Systems {
 
     private void _setPlayers(){
         this.cmd = new Commands();
-        Inventory inv = new Inventory(0,0,0,0,0,0,0);
+        Inventory inv = new Inventory(0,0,0,0,0,0,0,0,0);
         this.p1 = new Player(10,10,10,inv,10);
         
     }
