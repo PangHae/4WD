@@ -67,7 +67,7 @@ public class Player {
 
         System.out.println("---inventory---");
         int i = 0;
-        for(i=0; i< 9; i++){
+        for(i=0; i< this.inv.getResource().length; i++){
             System.out.println(Arrays.toString((this.inv.getResource())[i]));
         }
         System.out.println("---------------");
@@ -78,7 +78,7 @@ public class Player {
         int i = 0;
         int currentCounts;
         
-        for(i=0; i<9; i++){
+        for(i=0; i<this.inv.getResource().length; i++){
             if(name.equals((this.inv.getResource())[i][0])){
                 currentCounts = (int)(this.inv.getResource())[i][1];
                 this.inv.setResource(currentCounts + counts, i);

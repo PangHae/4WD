@@ -7,7 +7,15 @@ public class Inventory {
                                     {"stoneAxe",0},
                                     {"stonePickAx",0},
                                     {"meet",0},
-                                    {"fruits",0}
+                                    {"fruits",0},
+                                    {"ship0",0},
+                                    {"ship1",0},
+                                    {"ship2",0},
+                                    {"house0",1},
+                                    {"house1",0},
+                                    {"house2",0},
+                                    {"house3",0}
+                                    
                                     };
     //counts
 
