@@ -50,8 +50,15 @@ public class Interaction{
         this.p1._gatheringUpdate(propName, 1, actionRequire, hungerRequire, thirstRequire);
         this.p1._gatheringUpdate("wood", -1*(woodRequire), 0,0, 0);
         this.p1._gatheringUpdate("stone", -1*(stoneRequire), 0,0, 0);
+        if(propName.equals("ship1")) this.p1._gatheringUpdate("ship0", -1 , 0, 0, 0);
+        else if(propName.equals("ship2")) this.p1._gatheringUpdate("ship1", -1 , 0, 0, 0);
+        else if(propName.equals("house1")) this.p1._gatheringUpdate("house0", -1 , 0, 0, 0);
+        else if(propName.equals("house2")) this.p1._gatheringUpdate("house1", -1 , 0, 0, 0);
+        else if(propName.equals("house3")) this.p1._gatheringUpdate("house2", -1 , 0, 0, 0);
+        else return;
     }
 
+    //아이템 확인해서 드랍률 증가
     public int _checkEquipment(String propName){
         int i;
         int j = 0;
@@ -68,6 +75,37 @@ public class Interaction{
         else return 0;
     }
 
-    
+    // 집 확인해서 행동력 증가
+    public int _checkHouse(){
+        if((int)(this.p1.getInv().getResource())[15][1] > 0 ){
+            return 5;
+        }
+        else if((int)(this.p1.getInv().getResource())[14][1] > 0 ){
+            return 3;
+        }
+        else if((int)(this.p1.getInv().getResource())[13][1] > 0 ){
+            return 1;
+        }
+        else return 0;
+        
+    }
 
+    //피로도 확인해서 최대활동력 차감
+    //hunger = 0 이면 매일 1, thirst = 0이면 매일 2 fatigue 감소
+    //fatigue 5 이하면 활동력 5 감소
+    //fatigue 0 이면 사망
+    //hunger, thrist 확인해서 fatigue 감소
+    public int _checkStatus(){
+        if(this.p1.getHunger() == 0 && this.p1.getThirst() == 0){
+            return 3;
+        }
+        else if(this.p1.getThirst() == 0){
+            return 2;
+        }
+        else if(this.p1.getHunger() == 0){
+            return 1;
+        }
+        else return 0;
+
+    }
 }

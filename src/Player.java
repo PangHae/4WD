@@ -99,6 +99,7 @@ public class Player {
         }
     }
 
+    //meet, fruits, water 사용
     public void _eating(String propName){
         if(propName.equals("meet")){
             this.hunger+=5;
@@ -116,6 +117,25 @@ public class Player {
                 this.thirst = 10;
         }
         else return ;
+    }
+
+    //피로도 업데이트
+    // state = -1 : 피로도 감소
+    // state = 1 : 피로도 회복
+    public void _updateFatigue(int state, int checkFatigue){
+
+        if(state == 1){
+            this.fatigue += checkFatigue;
+            if(this.fatigue > 10){
+                this.fatigue = 10;
+            }
+        }
+        else if(state == -1){
+            this.fatigue -= checkFatigue;
+            if(this.fatigue < 0){
+                this.fatigue = 0;
+            }
+        }
     }
 
 }
