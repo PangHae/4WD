@@ -45,8 +45,12 @@ public class Interaction{
         this.minimums = 0;
         this.maximums = 0;
     }
-    public void _making(){
-        
+    //아이템 제작, 물품의 필요 재료 갯수 만큼 차감
+    public void _making(String propName, int woodRequire, int stoneRequire, int actionRequire, int hungerRequire, int thirstRequire){
+        this.p1._gatheringUpdate(propName, 1, actionRequire, hungerRequire, thirstRequire);
+        this.p1._gatheringUpdate("wood", -1*(woodRequire), 0,0, 0);
+        this.p1._gatheringUpdate("stone", -1*(stoneRequire), 0,0, 0);
+
     }
 
 }

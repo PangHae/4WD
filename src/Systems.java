@@ -68,10 +68,20 @@ public class Systems {
             else return -2;
         }
         else if(this.blockCmd[0].equals("make")){
-            if(this.blockCmd[1].equals("stoneSword")) return 10;
-            else if(this.blockCmd[1].equals("stoneAxe")) return 11;
-            else if(this.blockCmd[1].equals("stonePickAx")) return 12;
-            else return -2;
+            if(_checkMaterials(this.blockCmd[1]) == 1){
+                if(this.blockCmd[1].equals("stoneSword")) return 10;
+                else if(this.blockCmd[1].equals("stoneAxe")) return 11;
+                else if(this.blockCmd[1].equals("stonePickAx")) return 12;
+                else if(this.blockCmd[1].equals("ship0")) return 20;
+                else if(this.blockCmd[1].equals("ship1")) return 21;
+                else if(this.blockCmd[1].equals("ship2")) return 22;
+                else if(this.blockCmd[1].equals("house1")) return 30;
+                else if(this.blockCmd[1].equals("house2")) return 31;
+                else if(this.blockCmd[1].equals("house3")) return 32;
+                else return -2;
+            }
+            else return -3;
+            
         }
         else{
             return -1;
@@ -124,16 +134,91 @@ public class Systems {
         }
 
         else if(command == 10){
-            System.out.println("make stoneSword!!");
-
+            if(currentAction >= 5){
+                System.out.println("make stoneSword!!");
+                interaction._making("stoneSword",30,30, 5,5,5);
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
+            
         }
         else if(command == 11){
-            System.out.println("make stoneAxe!!");
+            if(currentAction >= 5){
+                System.out.println("make stoneAxe!!");
+                interaction._making("stoneAxe",15,15, 5,5,5);
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
 
         }
         else if(command == 12){
-            System.out.println("make stonePickAx!!");
+            if(currentAction >= 5){
+                System.out.println("make stonePickAx!!");
+                interaction._making("stonePickAx",25,25,5,5,5);
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
+        }
+        else if(command == 20){
+            if(currentAction >= 10){
+                System.out.println("make ship0!!");
+                interaction._making("sihp0", 100,100, 10 , 8, 8);
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
 
+        }else if(command == 21){
+            if(currentAction >= 12){
+                System.out.println("make ship1!!");
+                interaction._making("ship1", 150,150,12 , 8, 8);
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
+
+        }else if(command == 22){
+            if(currentAction >= 15){
+                System.out.println("make ship2!!");
+                interaction._making("ship2",200,200, 15 , 8, 8);
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
+        }
+        else if(command == 30){
+            if(currentAction >= 10){
+                System.out.println("make house1!!");
+                interaction._making("house1", 50,50,10 , 8, 8);
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
+
+        }else if(command == 31){
+            if(currentAction >= 11){
+                System.out.println("make house2!!");
+                interaction._making("house2", 75,75,11 , 8, 8);
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
+
+        }else if(command == 32){
+            if(currentAction >= 12){
+                System.out.println("make house3!!");
+                interaction._making("house3",100,100, 12 , 8, 8);
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
+
+        }
+        else if(command == -3){
+            System.out.println("not enough materials");
         }
         else{
             System.out.println("error!!");
@@ -153,6 +238,70 @@ public class Systems {
         else{
             return 0;
         }
+
+    }
+
+    //제작시 아이템 갯수 체크
+    private int _checkMaterials(String makingItem){
+
+        int wood = (int)(p1.getInv().getResource())[2][1];
+        int stone = (int)(p1.getInv().getResource())[3][1];
+        String[] itemList = new String[9];
+        int i;
+        int j = -1;
+        itemList[0] = "stoneSword";
+        itemList[1] = "stoneAxe";
+        itemList[2] = "stonePickAx";
+        itemList[3] = "ship0";
+        itemList[4] = "ship1";
+        itemList[5] = "ship2";
+        itemList[6] = "house1";
+        itemList[7] = "house2";
+        itemList[8] = "house3";
+        
+        for(i=0; i<itemList.length; i++){
+            if(makingItem.equals(itemList[i])) 
+                j = i;
+        }
+       
+        if(j == 0){
+            if(wood >= 30 && stone >= 30) return 1;
+            else return 0;
+        }
+        else if(j==1){
+            if(wood >= 15 && stone >= 15) return 1;
+            else return 0;
+        }
+        else if(j==2){
+            if(wood >= 25 && stone >= 25) return 1;
+            else return 0;
+        }
+        else if(j==3){
+            if(wood >= 100 && stone >= 100) return 1;
+            else return 0;
+        }
+        else if(j==4){
+            if(wood >= 150 && stone >= 150) return 1;
+            else return 0;
+        }
+        else if(j==5){
+            if(wood >= 200 && stone >= 200) return 1;
+            else return 0;
+        }
+        else if(j==6){
+            if(wood >= 50 && stone >= 50) return 1;
+            else return 0;
+        }
+        else if(j==7){
+            if(wood >= 75 && stone >= 75) return 1;
+            else return 0;
+        }
+        else if(j==8){
+            if(wood >= 100 && stone >= 100) return 1;
+            else return 0;
+        }
+
+        else return -1;
 
     }
 }
