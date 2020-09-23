@@ -1,3 +1,4 @@
+
 public class Systems {
     private int days=1;
     private int maximumDays;
@@ -65,6 +66,7 @@ public class Systems {
             else if(this.blockCmd[1].equals("stone")) return 1;
             else if(this.blockCmd[1].equals("meet")) return 2;
             else if(this.blockCmd[1].equals("fruits")) return 3;
+            else if(this.blockCmd[1].equals("water")) return 4;
             else return -2;
         }
         else if(this.blockCmd[0].equals("make")){
@@ -83,6 +85,17 @@ public class Systems {
             else return -3;
             
         }
+
+        else if(this.blockCmd[0].equals("use")){
+            if(_checkMaterials(this.blockCmd[1]) == 1){
+                if(this.blockCmd[1].equals("meet")) return 40;
+                else if(this.blockCmd[1].equals("fruits")) return 41;
+                else if(this.blockCmd[1].equals("water")) return 42;
+                else return -2;
+            }
+            else return -3;
+
+        }
         else{
             return -1;
         }
@@ -95,8 +108,14 @@ public class Systems {
         String notEnoughAction = "not enough Action";
         if(command == 0){
             if(currentAction >= 1){
-                System.out.println("gathering wood!!");
-                interaction._gathering("wood", 100, 1, 1,2,3, 1);
+                if(this.interaction._checkEquipment("stoneAxe") == 1){
+                    System.out.println("gathering wood wiht stoneAxe!!");
+                    interaction._gathering("wood", 100, 1, 1,2,5,3);
+                }
+                else{
+                    System.out.println("gathering wood!!");
+                    interaction._gathering("wood", 70, 1, 1,2,4, 2);
+                }
                 
             }
             else{
@@ -105,18 +124,33 @@ public class Systems {
         }
         else if(command == 1){
             if(currentAction >= 1){
-                System.out.println("gathering stone!!");
-                
-                interaction._gathering("stone", 100, 1, 1, 2, 3, 1);
+
+                if(this.interaction._checkEquipment("stonePickAx") == 1){
+                    System.out.println("gathering stone wiht stonePickAx");
+                    interaction._gathering("stone", 100, 1, 1, 2, 4, 2);
+
+                }
+                else{
+                    System.out.println("gathering stone!!");
+                    interaction._gathering("stone", 70, 1, 1, 2, 3, 1);
+                }
             }
             else{
                 System.out.println(notEnoughAction);
             }
         }
         else if(command == 2){
-            if(currentAction >= 1){
-                System.out.println("gathering meet!!");
-                interaction._gathering("meet", 100, 1, 1, 2, 3, 1);
+            if(currentAction >= 3){
+
+                if(this.interaction._checkEquipment("stoneSword") == 1){
+                    System.out.println("gathering meet with stoneSword!!");
+                    interaction._gathering("meet", 100, 1, 3, 2, 5, 3);
+
+                }
+                else{
+                    System.out.println("gathering meet!!");
+                    interaction._gathering("meet", 70, 1, 3, 2, 3, 1);
+                }
             }
             else{
                 System.out.println(notEnoughAction);
@@ -133,6 +167,15 @@ public class Systems {
             }
         }
 
+        else if(command == 4){
+            if(currentAction >= 1){
+                System.out.println("gathering water");
+                interaction._gathering("water", 100, 1, 1, 1, 3, 1);
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
+        }
         else if(command == 10){
             if(currentAction >= 5){
                 System.out.println("make stoneSword!!");
@@ -216,6 +259,15 @@ public class Systems {
                 System.out.println(notEnoughAction);
             }
 
+        }else if(command == 40){
+            System.out.println("eat meet!!");
+            p1._eating("meet");
+        }else if(command == 41){
+            System.out.println("eat fruits!!");
+            p1._eating("fruits");
+        }else if(command == 42){
+            System.out.println("drink water!!");
+            p1._eating("water");
         }
         else if(command == -3){
             System.out.println("not enough materials");
@@ -223,7 +275,6 @@ public class Systems {
         else{
             System.out.println("error!!");
         }
-
     }
 
     //남은 행동력 계산
@@ -246,7 +297,10 @@ public class Systems {
 
         int wood = (int)(p1.getInv().getResource())[2][1];
         int stone = (int)(p1.getInv().getResource())[3][1];
-        String[] itemList = new String[9];
+        int meet = (int)(p1.getInv().getResource())[7][1];
+        int fruits = (int)(p1.getInv().getResource())[8][1];
+        int water = (int)(p1.getInv().getResource())[0][1];
+        String[] itemList = new String[12];
         int i;
         int j = -1;
         itemList[0] = "stoneSword";
@@ -258,7 +312,9 @@ public class Systems {
         itemList[6] = "house1";
         itemList[7] = "house2";
         itemList[8] = "house3";
-        
+        itemList[9] = "meet";
+        itemList[10] = "fruits";
+        itemList[11] = "water";
         for(i=0; i<itemList.length; i++){
             if(makingItem.equals(itemList[i])) 
                 j = i;
@@ -300,6 +356,19 @@ public class Systems {
             if(wood >= 100 && stone >= 100) return 1;
             else return 0;
         }
+        else if(j==9){
+            if(meet > 0) return 1;
+            else return 0;
+        }
+        else if(j==10){
+            if(fruits > 0) return 1;
+            else return 0;
+        }
+        else if(j==11){
+            if(water > 0) return 1;
+            else return 0;
+        }
+
 
         else return -1;
 

@@ -50,7 +50,24 @@ public class Interaction{
         this.p1._gatheringUpdate(propName, 1, actionRequire, hungerRequire, thirstRequire);
         this.p1._gatheringUpdate("wood", -1*(woodRequire), 0,0, 0);
         this.p1._gatheringUpdate("stone", -1*(stoneRequire), 0,0, 0);
-
     }
+
+    public int _checkEquipment(String propName){
+        int i;
+        int j = 0;
+        for(i=0; i<this.p1.getInv().getResource().length; i++){
+            if((this.p1.getInv().getResource())[i][0].equals(propName)){
+                j = i;
+                break;
+            }
+        }
+
+        if((int)(this.p1.getInv().getResource())[j][1] > 0){
+            return 1;
+        }
+        else return 0;
+    }
+
+    
 
 }

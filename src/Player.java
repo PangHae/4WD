@@ -99,4 +99,23 @@ public class Player {
         }
     }
 
+    public void _eating(String propName){
+        if(propName.equals("meet")){
+            this.hunger+=5;
+            if(this.hunger > 10)
+                this.hunger = 10;
+        }
+        else if(propName.equals("fruits")){
+            this.hunger+=3;
+            if(this.hunger > 10)
+                this.hunger = 10;
+        }
+        else if(propName.equals("water")){
+            this.thirst += 4;
+            if(this.thirst > 10)
+                this.thirst = 10;
+        }
+        else return ;
+    }
+
 }
