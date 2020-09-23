@@ -50,12 +50,13 @@ public class Systems {
     }
 
     private boolean _isNotFinished(){
-        if(this.days>=this.maximumDays) return false;
+        if(this.days>=this.maximumDays || (this.p1.getFatigue() == 0)) return false;
         else return true;
     }
 
     private void _nextDay(){
         this.days+=1;
+        this.p1._updateFatigue(-1,this.interaction._checkStatus());
     }
 
     //command 해석해서 리턴
@@ -96,6 +97,11 @@ public class Systems {
             else return -3;
 
         }
+
+        else if(this.blockCmd[0].equals("sleep")){
+            return 100;
+        }
+    
         else{
             return -1;
         }
@@ -269,6 +275,13 @@ public class Systems {
             System.out.println("drink water!!");
             p1._eating("water");
         }
+
+        else if(command == 100){
+            System.out.println("sleep!");
+            this.p1._updateFatigue(1, this.p1.getAction());
+            this.p1.setAction(0);
+
+        }
         else if(command == -3){
             System.out.println("not enough materials");
         }
@@ -278,12 +291,21 @@ public class Systems {
     }
 
     //남은 행동력 계산
+    //집 업글 정도에 따라 행동력 추가
+    //피로도 수치에 따라 행동력 감소
     private int _checkAction(){
 
         int currentAction = this.p1.getAction();
-
+        int addAction = interaction._checkHouse();
+        int currentFatigue = this.p1.getFatigue();
         if(currentAction == 0){
-            this.p1.setAction(10);
+          
+            if(currentFatigue <= 5){
+                this.p1.setAction(5+ addAction);
+            }
+            else{
+                this.p1.setAction(10 + addAction);
+            }
             return 1;
         }
         else{
