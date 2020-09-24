@@ -30,7 +30,14 @@ public class Systems {
                     _nextDay();
                     System.out.println(this.days + "day");                    
                 }
-            }else{
+            }
+            //탈출 성공
+            else if(this.p1.getEscape() == 1){
+                _escapeSuccess();
+                break;
+            }
+            //탈출 실패 및 게임 오버
+            else{
                 _newGame();
                 break;
             }
@@ -42,6 +49,9 @@ public class Systems {
         System.out.println("-GameOver-");
     }
 
+    private void _escapeSuccess(){
+        System.out.println("-Escape Success!!-");
+    }
     private void _setPlayers(){
         this.cmd = new Commands();
         Inventory inv = new Inventory(0,0,0,0,0,0,0,0,0);
@@ -50,7 +60,7 @@ public class Systems {
     }
 
     private boolean _isNotFinished(){
-        if(this.days>=this.maximumDays || (this.p1.getFatigue() == 0)) return false;
+        if(this.days>=this.maximumDays || (this.p1.getFatigue() == 0) || (this.p1.getEscape() != 0)) return false;
         else return true;
     }
 
@@ -83,6 +93,8 @@ public class Systems {
                 else if(this.blockCmd[1].equals("house3")) return 32;
                 else return -2;
             }
+            else if(_checkMaterials(this.blockCmd[1]) == -1) return -10;
+
             else return -3;
             
         }
@@ -94,14 +106,33 @@ public class Systems {
                 else if(this.blockCmd[1].equals("water")) return 42;
                 else return -2;
             }
+            else if(_checkMaterials(this.blockCmd[1]) == -1) return -10;
             else return -3;
 
         }
+        else if(this.blockCmd[0].equals("rescue")){
+            if(_checkMaterials(this.blockCmd[1]) == 1){
+                if(this.blockCmd[1].equals("smoke")) return 80;
+                else if(this.blockCmd[1].equals("SOS")) return 81;
+                else return -2;
+            }
+            else if(_checkMaterials(this.blockCmd[1]) == -1) return -10;
 
+            else return -3;
+        }
+
+        else if(this.blockCmd[0].equals("escape")){
+            int currentShip = (int)(this.p1.getInv().getResource())[9][1] + (int)(this.p1.getInv().getResource())[10][1] + (int)(this.p1.getInv().getResource())[11][1];
+            if(currentShip > 0) return 90;
+            else return -3;
+        }
         else if(this.blockCmd[0].equals("sleep")){
             return 100;
         }
     
+        else if(this.blockCmd[0].equals("cheat")){
+            return 200;
+        }
         else{
             return -1;
         }
@@ -116,11 +147,11 @@ public class Systems {
             if(currentAction >= 1){
                 if(this.interaction._checkEquipment("stoneAxe") == 1){
                     System.out.println("gathering wood wiht stoneAxe!!");
-                    interaction._gathering("wood", 100, 1, 1,2,5,3);
+                    interaction._gathering("wood", 100, 1, 1,2,13,8);
                 }
                 else{
                     System.out.println("gathering wood!!");
-                    interaction._gathering("wood", 70, 1, 1,2,4, 2);
+                    interaction._gathering("wood", 70, 1, 1,2,7, 2);
                 }
                 
             }
@@ -133,12 +164,12 @@ public class Systems {
 
                 if(this.interaction._checkEquipment("stonePickAx") == 1){
                     System.out.println("gathering stone wiht stonePickAx");
-                    interaction._gathering("stone", 100, 1, 1, 2, 4, 2);
+                    interaction._gathering("stone", 100, 1, 1, 2, 13, 8);
 
                 }
                 else{
                     System.out.println("gathering stone!!");
-                    interaction._gathering("stone", 70, 1, 1, 2, 3, 1);
+                    interaction._gathering("stone", 70, 1, 1, 2, 7, 2);
                 }
             }
             else{
@@ -150,12 +181,12 @@ public class Systems {
 
                 if(this.interaction._checkEquipment("stoneSword") == 1){
                     System.out.println("gathering meet with stoneSword!!");
-                    interaction._gathering("meet", 100, 1, 3, 2, 5, 3);
+                    interaction._gathering("meet", 100, 3, 3, 2, 10, 7);
 
                 }
                 else{
                     System.out.println("gathering meet!!");
-                    interaction._gathering("meet", 70, 1, 3, 2, 3, 1);
+                    interaction._gathering("meet", 70, 3, 3, 2, 5, 3);
                 }
             }
             else{
@@ -176,7 +207,7 @@ public class Systems {
         else if(command == 4){
             if(currentAction >= 1){
                 System.out.println("gathering water");
-                interaction._gathering("water", 100, 1, 1, 1, 3, 1);
+                interaction._gathering("water", 100, 1, 1, 1, 5, 2);
             }
             else{
                 System.out.println(notEnoughAction);
@@ -214,7 +245,7 @@ public class Systems {
         else if(command == 20){
             if(currentAction >= 10){
                 System.out.println("make ship0!!");
-                interaction._making("sihp0", 100,100, 10 , 8, 8);
+                interaction._making("ship0", 100,100, 10 , 8, 8);
             }
             else{
                 System.out.println(notEnoughAction);
@@ -276,10 +307,49 @@ public class Systems {
             p1._eating("water");
         }
 
+        else if(command == 80){
+            if(currentAction >= 5){
+                p1._gatheringUpdate("wood", -30, 5, 5, 5);
+                p1.setEscape(p1._escape(0));
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
+        }
+        else if(command == 81){
+            if(currentAction >= 5){
+                p1._gatheringUpdate("stone", -30, 5, 5, 5);
+                p1.setEscape(p1._escape(1));
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
+        }
+        else if(command == 90){
+            if(currentAction >= 10){
+                p1.setEscape(p1._escape(2));
+            }
+            else{
+                System.out.println(notEnoughAction);
+            }
+        }
         else if(command == 100){
             System.out.println("sleep!");
             this.p1._updateFatigue(1, this.p1.getAction());
             this.p1.setAction(0);
+
+        }
+        else if(command == 200){
+            System.out.println("use cheat!!");
+            this.p1._gatheringUpdate("wood", 1000, 0, 0, 0);
+            this.p1._gatheringUpdate("stone", 1000, 0, 0, 0);
+            this.p1._gatheringUpdate("water", 1000, 0, 0, 0);
+            this.p1._gatheringUpdate("meet", 1000, 0, 0, 0);
+            this.p1._gatheringUpdate("stoneSword", 1, 0, 0, 0);
+            this.p1._gatheringUpdate("stoneAxe", 1, 0, 0, 0);
+            this.p1._gatheringUpdate("stonePickAx", 1, 0, 0, 0);
+            this.p1._gatheringUpdate("house3", 1, 0, 0, 0);
+            this.p1._gatheringUpdate("house0", -1, 0, 0, 0);
 
         }
         else if(command == -3){
@@ -299,7 +369,6 @@ public class Systems {
         int addAction = interaction._checkHouse();
         int currentFatigue = this.p1.getFatigue();
         if(currentAction == 0){
-          
             if(currentFatigue <= 5){
                 this.p1.setAction(5+ addAction);
             }
@@ -322,7 +391,7 @@ public class Systems {
         int meet = (int)(p1.getInv().getResource())[7][1];
         int fruits = (int)(p1.getInv().getResource())[8][1];
         int water = (int)(p1.getInv().getResource())[0][1];
-        String[] itemList = new String[12];
+        String[] itemList = new String[14];
         int i;
         int j = -1;
         itemList[0] = "stoneSword";
@@ -337,6 +406,8 @@ public class Systems {
         itemList[9] = "meet";
         itemList[10] = "fruits";
         itemList[11] = "water";
+        itemList[12] = "smoke";
+        itemList[13] = "SOS";
         for(i=0; i<itemList.length; i++){
             if(makingItem.equals(itemList[i])) 
                 j = i;
@@ -388,6 +459,14 @@ public class Systems {
         }
         else if(j==11){
             if(water > 0) return 1;
+            else return 0;
+        }
+        else if(j == 12){
+            if(wood >= 30) return 1;
+            else return 0;
+        }
+        else if(j == 13){
+            if(stone >= 30) return 1;
             else return 0;
         }
 

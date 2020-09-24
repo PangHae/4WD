@@ -14,8 +14,7 @@ public class Inventory {
                                     {"house0",1},
                                     {"house1",0},
                                     {"house2",0},
-                                    {"house3",0}
-                                    
+                                    {"house3",0}       
                                     };
     //counts
 
