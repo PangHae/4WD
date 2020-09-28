@@ -5,6 +5,17 @@ public class Commands {
     private String rowCmd = null;
     private String[] blockCmd;
     private Scanner inputScanner;
+//    private String[][] possible = {
+//            {"gathering","wood","stone","meat","fruits","water"},
+//            {"make","stonesword","stonepickaxe","ship0","ship1","ship2","house1","house2","house3"},
+//            {"use","meat","fruits","water"},
+//            {"rescue","smoke","sos"},
+//            {"help"},
+//            {"sleep"},
+//            {"escape"}
+//    };
+
+    private String[] helpList={"gathering","make","use","rescue","sleep","escape"};
 
     Commands(){
         this.inputScanner = new Scanner(System.in);
@@ -18,11 +29,29 @@ public class Commands {
             this.rowCmd = this.inputScanner.nextLine().toLowerCase();
 
             _cleaning(rowCmd.split("\\s+"));
+
             if(blockCmd[0].equals("help")){
+
+                if(blockCmd.length!=1){
+                    System.out.println("??");
+                    for(int i=0;i<helpList.length;i++){
+                        if(blockCmd[1].equals(helpList[i])){
+                            _help(blockCmd[1]);
+                            System.out.println("help list입력시");
+                            return null;
+                        }
+                    }
+                }else if(blockCmd.length==1){
+                    _help("");
+                    System.out.println("help만 입력시");
+                    return null;
+                }
+
                 //help 함수
             }else if(blockCmd !=null){
                 return this.blockCmd;
             }
+
         }
     }
 
@@ -46,6 +75,24 @@ public class Commands {
             temp[1] = blockCmd[2];
             blockCmd=null;
             blockCmd=temp;
+        }
+    }
+
+    private void _help(String str){     //help 했을때 실행되는 함수
+        if(str.equals("gathering")){    //파일(txt)이용해서 help내용 가져오게 하는게 편할듯
+
+        }else if(str.equals("make")){
+
+        }else if(str.equals("use")){
+
+        }else if(str.equals("rescue")){
+
+        }else if(str.equals("sleep")){
+
+        }else if(str.equals("escape")){
+
+        }else if(str.equals("")){
+
         }
     }
 
