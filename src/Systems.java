@@ -166,7 +166,7 @@ public class Systems {
             if(currentAction >= 1){
 
                 if(this.interaction._checkEquipment("stonePickAxe") == 1){
-                    System.out.println("gathering stone wiht stonePickAxe");
+                    System.out.println("gathering stone with stonePickAxe");
                     interaction._gathering("stone", 100, 1, 1, 2, 13, 8);
 
                 }

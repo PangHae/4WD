@@ -105,30 +105,30 @@ public class Player {
                     this.thirst = this.thirst - thirstRequire;
                 }
 
-            }
+            }// 필요 cost에 못 미치더라도 모든 행동들은 가능
         }
     }
 
     //meet, fruits, water 사용
     public void _eating(String propName){
-        if(propName.equals("meet")){
-            _gatheringUpdate("meet", -1, 0, 0, 0);
+        if(propName.equals("meat")){
+            _gatheringUpdate("meat", -1, 0, 0, 0);
             this.hunger+=5;
             if(this.hunger > 10)
                 this.hunger = 10;
-        }
+        } // meat 섭취 시 허기 수치 5증가
         else if(propName.equals("fruits")){
             _gatheringUpdate("fruits", -1, 0, 0, 0);
             this.hunger+=3;
             if(this.hunger > 10)
                 this.hunger = 10;
-        }
+        } // fruits 섭취 시 허기 수치 3증가
         else if(propName.equals("water")){
             _gatheringUpdate("water", -1, 0, 0, 0);
             this.thirst += 4;
             if(this.thirst > 10)
                 this.thirst = 10;
-        }
+        } // water 섭취 시 갈증 수치 4 증가
         else return ;
     }
 
