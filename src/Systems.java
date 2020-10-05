@@ -9,6 +9,7 @@ public class Systems {
     private int interpretedCommand;
     private int action;
     private Interaction interaction;
+
     Systems(int maximumDays,int times){
         this.maximumDays = maximumDays;
         this.times= times;
