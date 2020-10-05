@@ -16,14 +16,20 @@ public class Commands {
 //    };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private String[] helpList={"gathering","command","escape","gameExplain","inventory","item", "player"};
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> bd14f58a668209fef6d6d341d27959c3e9e07875
     private String[] helpList={"gathering","command","escape","gameExplain","inventory","item","player"};
 =======
     private String[] helpList={"gathering","make","use","rescue","sleep","escape"};
 >>>>>>> a97d50c87b8e433e20d0d99d4c00e452bd5d5842
+<<<<<<< HEAD
 >>>>>>> f3afa8943fff7dd5d75a290b423af4c64762886e
+=======
+>>>>>>> bd14f58a668209fef6d6d341d27959c3e9e07875
 
     Commands(){
         this.inputScanner = new Scanner(System.in);
@@ -88,6 +94,34 @@ public class Commands {
 
 <<<<<<< HEAD
     private void _help(String str){//help 했을때 실행되는 함수
+<<<<<<< HEAD
+=======
+
+        TxtRead rd = new TxtRead();
+        if(str.equals("gathering")){    //파일(txt)이용해서 help내용 가져오게 하는게 편할듯
+            rd._readTxt("gathering");
+        }else if(str.equals("command")){
+            rd._readTxt("command");
+        }else if(str.equals("escape")){
+            rd._readTxt("escape");
+        }else if(str.equals("gameExplain")){
+            rd._readTxt("gameExplain");
+        }else if(str.equals("inventory")){
+            rd._readTxt("inventory");
+        }else if(str.equals("item")){
+            rd._readTxt("item");
+        }else if(str.equals("player")){
+            rd._readTxt("player");
+=======
+    private void _help(String str){     //help 했을때 실행되는 함수
+        if(str.equals("gathering")){    //파일(txt)이용해서 help내용 가져오게 하는게 편할듯
+
+        }else if(str.equals("make")){
+
+        }else if(str.equals("use")){
+
+        }else if(str.equals("rescue")){
+>>>>>>> bd14f58a668209fef6d6d341d27959c3e9e07875
 
         TxtRead rd = new TxtRead();
         if(str.equals("gathering")){    //파일(txt)이용해서 help내용 가져오게 하는게 편할듯
@@ -128,7 +162,10 @@ public class Commands {
         }else if(str.equals("")){
 
 >>>>>>> a97d50c87b8e433e20d0d99d4c00e452bd5d5842
+<<<<<<< HEAD
 >>>>>>> f3afa8943fff7dd5d75a290b423af4c64762886e
+=======
+>>>>>>> bd14f58a668209fef6d6d341d27959c3e9e07875
         }
     }
 
