@@ -3,8 +3,11 @@ public class Interaction{
     private String propName=null;
     private int probability= 0;
     private int actionRequire= 0;
+<<<<<<< HEAD
     private int hungerRequire = 0;
     private int thirstRequire = 0;
+=======
+>>>>>>> origin/driver
     private int maximums = 0;
     private int minimums = 1;
     private Player p1;
@@ -13,6 +16,7 @@ public class Interaction{
         this.p1 = p1;
     }
 
+<<<<<<< HEAD
     public void _gathering(String propName,int probability, int actionRequire,int hungerRequire,int thirstRequire, int maximums,int minimums){
         this.propName= propName;
         this.actionRequire = actionRequire;
@@ -24,6 +28,17 @@ public class Interaction{
     
         int numbers = _gatheringCalculate();
         this.p1._gatheringUpdate(this.propName, numbers, this.actionRequire, this.hungerRequire, this.thirstRequire);
+=======
+    public void _gathering(String propName,int probability, int actionRequire,int maximums,int minimums){
+        this.propName= propName;
+        this.actionRequire = actionRequire;
+        this.maximums = maximums;
+        this.probability = probability;
+        this.minimums= minimums;
+
+        int numbers = _gatheringCalculate();
+        this.p1._gatheringUpdate(this.propName, numbers, this.actionRequire);
+>>>>>>> origin/driver
         _reset();
     }
 
@@ -45,6 +60,7 @@ public class Interaction{
         this.minimums = 0;
         this.maximums = 0;
     }
+<<<<<<< HEAD
     //아이템 제작, 물품의 필요 재료 갯수 만큼 차감
     public void _making(String propName, int woodRequire, int stoneRequire, int actionRequire, int hungerRequire, int thirstRequire){
         this.p1._gatheringUpdate(propName, 1, actionRequire, hungerRequire, thirstRequire);
@@ -108,4 +124,10 @@ public class Interaction{
         else return 0;
 
     }
+=======
+    public void _making(){
+        
+    }
+
+>>>>>>> origin/driver
 }

@@ -1,12 +1,18 @@
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.Random;
+=======
+>>>>>>> origin/driver
 
 public class Player {
     private int hunger;
     private int thirst;
     private int action;
     private int fatigue;
+<<<<<<< HEAD
     private int escape = 0; //escape 상태 체크 용 변수, 1이면 탈출 성공 0이면 진행, -1 이면 게임 종료
+=======
+>>>>>>> origin/driver
     private Inventory inv;
 
     Player(int hunger, int thirst, int action,Inventory inv, int fatigue) {
@@ -18,12 +24,18 @@ public class Player {
     }
 
     public void _showStatus(){
+<<<<<<< HEAD
         System.out.println("---status---");
+=======
+>>>>>>> origin/driver
         System.out.println("hunger: "+this.hunger);
         System.out.println("thirst: "+this.thirst);
         System.out.println("action: "+this.action);
         System.out.println("fatigue: "+this.fatigue);
+<<<<<<< HEAD
         System.out.println("------------");
+=======
+>>>>>>> origin/driver
     }
 
     public int getHunger() {
@@ -58,6 +70,7 @@ public class Player {
         this.fatigue = fatigue;
     }
 
+<<<<<<< HEAD
     public int getEscape(){
         return this.escape;
     }
@@ -66,6 +79,8 @@ public class Player {
         this.escape = escape;
     }
 
+=======
+>>>>>>> origin/driver
     public Inventory getInv() {
         return inv;
     }
@@ -74,6 +89,7 @@ public class Player {
         this.inv = inv;
     }
     public void _showInventory(){
+<<<<<<< HEAD
 
         System.out.println("---inventory---");
         int i = 0;
@@ -209,5 +225,11 @@ public class Player {
         }
         else return 0;
     }
+=======
+        System.out.println(inv.getResource());
+    }
+
+    public void _gatheringUpdate(String name, int counts, int actionRequire){}
+>>>>>>> origin/driver
 
 }

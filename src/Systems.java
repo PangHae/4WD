@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/driver
 public class Systems {
     private int days=1;
     private int maximumDays;
@@ -6,15 +9,20 @@ public class Systems {
     private Commands cmd;
     private Player p1;
     private String[] blockCmd;
+<<<<<<< HEAD
     private int interpretedCommand;
     private int action;
     private Interaction interaction;
+=======
+
+>>>>>>> origin/driver
     Systems(int maximumDays,int times){
         this.maximumDays = maximumDays;
         this.times= times;
     }
 
     public void _dayGame(){
+<<<<<<< HEAD
         
         _setPlayers();
         interaction =  new Interaction(this.p1);
@@ -43,12 +51,24 @@ public class Systems {
             }
         }
         
+=======
+        _setPlayers();
+
+        if(_isNotFinished()){
+            this.blockCmd = this.cmd._inputCommand();
+            this.cmd._commandTest();
+            _nextDay();
+        }else{
+            _newGame();
+        }
+>>>>>>> origin/driver
     }
 
     private void _newGame(){
         System.out.println("-GameOver-");
     }
 
+<<<<<<< HEAD
     private void _escapeSuccess(){
         System.out.println("-Escape Success!!-");
     }
@@ -61,11 +81,22 @@ public class Systems {
 
     private boolean _isNotFinished(){
         if(this.days>=this.maximumDays || (this.p1.getFatigue() == 0) || (this.p1.getEscape() != 0)) return false;
+=======
+    private void _setPlayers(){
+        this.cmd = new Commands();
+        Inventory inv = new Inventory();
+        this.p1 = new Player(10,10,10,inv);
+    }
+
+    private boolean _isNotFinished(){
+        if(this.days>=this.maximumDays) return false;
+>>>>>>> origin/driver
         else return true;
     }
 
     private void _nextDay(){
         this.days+=1;
+<<<<<<< HEAD
         this.p1._updateFatigue(-1,this.interaction._checkStatus());
     }
 
@@ -474,4 +505,8 @@ public class Systems {
         else return -1;
 
     }
+=======
+    }
+
+>>>>>>> origin/driver
 }
