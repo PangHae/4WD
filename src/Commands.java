@@ -15,7 +15,7 @@ public class Commands {
 //            {"escape"}
 //    };
 
-    private String[] helpList={"gathering","make","use","rescue","sleep","escape"};
+    private String[] helpList={"gathering","command","escape","gameExplain","inventory","item", "player"};
 
     Commands(){
         this.inputScanner = new Scanner(System.in);
@@ -79,20 +79,22 @@ public class Commands {
     }
 
     private void _help(String str){     //help 했을때 실행되는 함수
+
+        TxtRead rd = new TxtRead();
         if(str.equals("gathering")){    //파일(txt)이용해서 help내용 가져오게 하는게 편할듯
-
-        }else if(str.equals("make")){
-
-        }else if(str.equals("use")){
-
-        }else if(str.equals("rescue")){
-
-        }else if(str.equals("sleep")){
-
+            rd._readTxt("gathering");
         }else if(str.equals("escape")){
-
-        }else if(str.equals("")){
-
+            rd._readTxt("escape");
+        }else if(str.equals("gameExplain")){
+            rd._readTxt("gameExplain");
+        }else if(str.equals("command")){
+            rd._readTxt("command");
+        }else if(str.equals("inventory")){
+            rd._readTxt("inventory");
+        }else if(str.equals("item")){
+            rd._readTxt("item");
+        }else if(str.equals("player")){
+            rd._readTxt("player");
         }
     }
 

@@ -13,10 +13,10 @@ water, meat, fruits, wood, stone
 자원채집
 	장비	행동력	허기	갈증	max	min											
 wood	도끼	1	1	2	13	8	
-	x	1	1	2	7	2
+wood	x	1	1	2	7	2
 stone	곡괭이	1	1	2	13	8						
-	x	1	1	2	7	2
+stone	x	1	1	2	7	2
 meat	칼	3	3	2	10	7
-	x	3	3	2	5	3
-fruits		1	1	2	3	1
-water		1	1	1	5	2
+meat	x	3	3	2	5	3
+fruits	x	1	1	2	3	1
+water	x	1	1	1	5	2
