@@ -1,5 +1,6 @@
 public class Inventory {
     private Object resource[][] = {{"water", 0},
+<<<<<<< HEAD
                                     {"food",0},
                                     {"wood",0},
                                     {"stone",0},
@@ -26,18 +27,44 @@ public class Inventory {
 
     Inventory(int water, int food, int wood, int stone, int stoneSword, int stoneAxe, int stonePickAx) {
 >>>>>>> origin/driver
+=======
+            {"food",0},
+            {"wood",0},
+            {"stone",0},
+            {"stoneSword",0},
+            {"stoneAxe",0},
+            {"stonePickAxe",0},
+            {"meat",0},
+            {"fruits",0},
+            {"ship0",0},
+            {"ship1",0},
+            {"ship2",0},
+            {"house0",1},
+            {"house1",0},
+            {"house2",0},
+            {"house3",0}
+    };
+    //counts
+
+    Inventory(int water, int food, int wood, int stone, int stoneSword, int stoneAxe, int stonePickAxe, int meat, int fruits) {
+>>>>>>> origin/pilot
         setStone(stone);
         setFood(food);
         setStoneAxe(stoneAxe);
-        setStonePickAx(stonePickAx);
+        setStonePickAxe(stonePickAxe);
         setStoneSword(stoneSword);
         setWood(wood);
         setWater(water);
+<<<<<<< HEAD
 <<<<<<< HEAD
         setResource(meet, 7);
         setResource(fruits, 8);
 =======
 >>>>>>> origin/driver
+=======
+        setResource(meat, 7);
+        setResource(fruits, 8);
+>>>>>>> origin/pilot
     }
     //getter & setter
 
@@ -63,16 +90,23 @@ public class Inventory {
     public void setStoneAxe(int stoneAxe){
         resource[5][1] = stoneAxe;
     }
-    public void setStonePickAx(int stonePickAx){
-        resource[6][1] = stonePickAx;
+    public void setStonePickAxe(int stonePickAxe){
+        resource[6][1] = stonePickAxe;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/pilot
 
 
     //item 번호와 갯수를 받아서 그에 해당하는 아이템 갯수 수정
     public void setResource(int mount, int itemNumber){
         resource[itemNumber][1] = mount;
     }
+<<<<<<< HEAD
 =======
 >>>>>>> origin/driver
 }
+=======
+}
+>>>>>>> origin/pilot
