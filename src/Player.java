@@ -83,6 +83,26 @@ public class Player {
         System.out.println("---------------");
     }
 
+    public Object[][] _sendPlayerData(){
+
+        Object invData [][] = this.inv.getResource();
+        for(int i = 0; i < invData.length; i++){
+            invData[i][0] = invData[i][0] + " ";
+        }
+
+        Object playerData [][] = {
+                {"thirst ", this.thirst},
+                {"hunger ", this.hunger},
+                {"action ", this.action},
+                {"fatigue ", this.fatigue}
+        };
+
+        Object allData[][] = new Object[invData.length + playerData.length][2];
+
+        return allData;
+
+    }
+
     public void _gatheringUpdate(String name, int counts, int actionRequire, int hungerRequire, int thirstRequire){
 
         int i = 0;
