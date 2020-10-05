@@ -15,11 +15,8 @@ public class Commands {
 //            {"escape"}
 //    };
 
-<<<<<<< HEAD
-    private String[] helpList={"gathering","command","escape","gameExplain","inventory","item","player"};
-=======
-    private String[] helpList={"gathering","make","use","rescue","sleep","escape"};
->>>>>>> a97d50c87b8e433e20d0d99d4c00e452bd5d5842
+
+    private String[] helpList={"gathering","command","escape","gameexplain","inventory","item","player"};
 
     Commands(){
         this.inputScanner = new Scanner(System.in);
@@ -46,8 +43,9 @@ public class Commands {
                         }
                     }
                 }else if(blockCmd.length==1){
-                    _help("");
+                    TxtRead read = new TxtRead();
                     System.out.println("help만 입력시");
+                    read._readTxt("help");
                     return null;
                 }
 
@@ -82,7 +80,6 @@ public class Commands {
         }
     }
 
-<<<<<<< HEAD
     private void _help(String str){//help 했을때 실행되는 함수
 
         TxtRead rd = new TxtRead();
@@ -100,23 +97,6 @@ public class Commands {
             rd._readTxt("item");
         }else if(str.equals("player")){
             rd._readTxt("player");
-=======
-    private void _help(String str){     //help 했을때 실행되는 함수
-        if(str.equals("gathering")){    //파일(txt)이용해서 help내용 가져오게 하는게 편할듯
-
-        }else if(str.equals("make")){
-
-        }else if(str.equals("use")){
-
-        }else if(str.equals("rescue")){
-
-        }else if(str.equals("sleep")){
-
-        }else if(str.equals("escape")){
-
-        }else if(str.equals("")){
-
->>>>>>> a97d50c87b8e433e20d0d99d4c00e452bd5d5842
         }
     }
 
