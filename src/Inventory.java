@@ -1,32 +1,32 @@
 public class Inventory {
     private Object resource[][] = {{"water", 0},
-                                    {"food",0},
-                                    {"wood",0},
-                                    {"stone",0},
-                                    {"stoneSword",0},
-                                    {"stoneAxe",0},
-                                    {"stonePickAx",0},
-                                    {"meet",0},
-                                    {"fruits",0},
-                                    {"ship0",0},
-                                    {"ship1",0},
-                                    {"ship2",0},
-                                    {"house0",1},
-                                    {"house1",0},
-                                    {"house2",0},
-                                    {"house3",0}       
-                                    };
+            {"food",0},
+            {"wood",0},
+            {"stone",0},
+            {"stoneSword",0},
+            {"stoneAxe",0},
+            {"stonePickAxe",0},
+            {"meat",0},
+            {"fruits",0},
+            {"ship0",0},
+            {"ship1",0},
+            {"ship2",0},
+            {"house0",1},
+            {"house1",0},
+            {"house2",0},
+            {"house3",0}
+    };
     //counts
 
-    Inventory(int water, int food, int wood, int stone, int stoneSword, int stoneAxe, int stonePickAx, int meet, int fruits) {
+    Inventory(int water, int food, int wood, int stone, int stoneSword, int stoneAxe, int stonePickAxe, int meat, int fruits) {
         setStone(stone);
         setFood(food);
         setStoneAxe(stoneAxe);
-        setStonePickAx(stonePickAx);
+        setStonePickAxe(stonePickAxe);
         setStoneSword(stoneSword);
         setWood(wood);
         setWater(water);
-        setResource(meet, 7);
+        setResource(meat, 7);
         setResource(fruits, 8);
     }
     //getter & setter
@@ -53,8 +53,8 @@ public class Inventory {
     public void setStoneAxe(int stoneAxe){
         resource[5][1] = stoneAxe;
     }
-    public void setStonePickAx(int stonePickAx){
-        resource[6][1] = stonePickAx;
+    public void setStonePickAxe(int stonePickAxe){
+        resource[6][1] = stonePickAxe;
     }
 
 

@@ -1,9 +1,21 @@
+import javax.swing.*;
 import java.util.*;
 
 public class Commands {
     private String rowCmd = null;
     private String[] blockCmd;
     private Scanner inputScanner;
+//    private String[][] possible = {
+//            {"gathering","wood","stone","meat","fruits","water"},
+//            {"make","stonesword","stonepickaxe","ship0","ship1","ship2","house1","house2","house3"},
+//            {"use","meat","fruits","water"},
+//            {"rescue","smoke","sos"},
+//            {"help"},
+//            {"sleep"},
+//            {"escape"}
+//    };
+
+    private String[] helpList={"gathering","make","use","rescue","sleep","escape"};
 
     Commands(){
         this.inputScanner = new Scanner(System.in);
@@ -11,27 +23,87 @@ public class Commands {
 
 
     public String[] _inputCommand(){
-        System.out.print("input Command: ");
-        this.rowCmd = this.inputScanner.nextLine();
-        _cleaning(rowCmd.split("\\s+"));
-        return this.blockCmd;
+        while(true){
+
+            System.out.print("input Command: ");
+            this.rowCmd = this.inputScanner.nextLine().toLowerCase();
+
+            _cleaning(rowCmd.split("\\s+"));
+
+            if(blockCmd[0].equals("help")){
+
+                if(blockCmd.length!=1){
+                    System.out.println("??");
+                    for(int i=0;i<helpList.length;i++){
+                        if(blockCmd[1].equals(helpList[i])){
+                            _help(blockCmd[1]);
+                            System.out.println("help list입력시");
+                            return null;
+                        }
+                    }
+                }else if(blockCmd.length==1){
+                    _help("");
+                    System.out.println("help만 입력시");
+                    return null;
+                }
+
+                //help 함수
+            }else if(blockCmd !=null){
+                return this.blockCmd;
+            }
+
+        }
     }
 
     private void _cleaning(String[] str){
-        if(str[0] == null || str.length>3){
+
+        if(str[0].equals("") || str.length>3){ //처음 공백 or 길이 3 보다 클경우 예외 처리
             this.blockCmd=null;
-        }else
+        }else if(str.length<=3 && str[0] !=null){ //명령어 들어가는 경우
             this.blockCmd=str;
+        }else{
+            this.blockCmd=null;
+        }
+
     }
 
-    //test
-    public void _commandTest() {
-        System.out.println(this.rowCmd);
-        if (this.blockCmd != null) {
-            for (int Rep1 = 0; Rep1 < blockCmd.length; Rep1++)
-                System.out.println(Rep1 + " : " + this.blockCmd[Rep1]);
-        }else
-            System.out.println("null");
+    private void _checksplit(){
+        String[] temp=null;
+
+        if(blockCmd[0] == null){
+            temp[0] = blockCmd[1];
+            temp[1] = blockCmd[2];
+            blockCmd=null;
+            blockCmd=temp;
+        }
     }
+
+    private void _help(String str){     //help 했을때 실행되는 함수
+        if(str.equals("gathering")){    //파일(txt)이용해서 help내용 가져오게 하는게 편할듯
+
+        }else if(str.equals("make")){
+
+        }else if(str.equals("use")){
+
+        }else if(str.equals("rescue")){
+
+        }else if(str.equals("sleep")){
+
+        }else if(str.equals("escape")){
+
+        }else if(str.equals("")){
+
+        }
+    }
+
+//    test
+//    public void _commandTest() {
+//        System.out.println(this.rowCmd);
+//        if (this.blockCmd != null) {
+//            for (int Rep1 = 0; Rep1 < blockCmd.length; Rep1++)
+//                System.out.println(Rep1 + " : " + this.blockCmd[Rep1]);
+//        }else
+//            System.out.println("null");
+//    }
 
 }
