@@ -15,7 +15,7 @@ public class Commands {
 //            {"escape"}
 //    };
 
-    private String[] helpList={"gathering","command","escape","gameExplain","inventory","item","player"};
+    private String[] helpList={"gathering","command","escape","gameexplain","inventory","item","player"};
     Commands(){
         this.inputScanner = new Scanner(System.in);
     }
@@ -86,14 +86,15 @@ public class Commands {
             rd._readTxt("command");
         }else if(str.equals("escape")){
             rd._readTxt("escape");
-        }else if(str.equals("gameExplain")){
-            rd._readTxt("gameExplain");
         }else if(str.equals("inventory")){
             rd._readTxt("inventory");
         }else if(str.equals("item")){
             rd._readTxt("item");
         }else if(str.equals("player")){
             rd._readTxt("player");
+        }else if(str.equals("gameexplain")){
+            rd._readTxt("gameExplain");
+        }else{
         }
     }
 
