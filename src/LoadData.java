@@ -20,12 +20,8 @@ import java.util.*;
     2. 데이터를 로드하면 첫번째 행은 저장일이 들어간다. str[0][0], str[0][1]
     3. 데이터가 String이므로, ParseInt로 바꿔 쓸 것.
     4. 필드 리셋은 _reset()을 사용할 것.
-<<<<<<< HEAD
-* */
-=======
     5. 세이브 파일 목록은 _showlist()를 사용할 것.
 */
->>>>>>> bd14f58a668209fef6d6d341d27959c3e9e07875
 
 public class LoadData {
     private String cmd = null;
@@ -136,10 +132,6 @@ public class LoadData {
             String data = read.readLine();
 
             while(data != null){
-<<<<<<< HEAD
-                System.out.println(data);
-=======
->>>>>>> bd14f58a668209fef6d6d341d27959c3e9e07875
                 String[] str = data.split("\\s+");
                 data = read.readLine();
                 this.queue.offer(str[0]);

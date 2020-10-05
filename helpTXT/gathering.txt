@@ -11,20 +11,12 @@ water, meat, fruits, wood, stone
 자세한 수치는 다음과 같습니다.
 
 자원채집
-<<<<<<< HEAD
-	장비	행동력	허기	갈증	max	min											
-wood	도끼	1	1	2	13	8	
-wood	x	1	1	2	7	2
-stone	곡괭이	1	1	2	13	8						
-stone	x	1	1	2	7	2
-=======
 	장비	행동력	허기	갈증	max	min
 wood	도끼	1	1	2	13	8
 	x	1	1	2	7	2
 stone	곡괭이	1	1	2	13	8
 	x	1	1	2	7	2
->>>>>>> f3afa8943fff7dd5d75a290b423af4c64762886e
 meat	칼	3	3	2	10	7
-meat	x	3	3	2	5	3
-fruits	x	1	1	2	3	1
-water	x	1	1	1	5	2
+	x	3	3	2	5	3
+fruits		1	1	2	3	1
+water		1	1	1	5	2
