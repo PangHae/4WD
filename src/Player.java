@@ -1,12 +1,27 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.Random;
+=======
+>>>>>>> origin/driver
+=======
+import java.util.Arrays;
+import java.util.Random;
+>>>>>>> origin/pilot
 
 public class Player {
     private int hunger;
     private int thirst;
     private int action;
     private int fatigue;
+<<<<<<< HEAD
+<<<<<<< HEAD
     private int escape = 0; //escape 상태 체크 용 변수, 1이면 탈출 성공 0이면 진행, -1 이면 게임 종료
+=======
+>>>>>>> origin/driver
+=======
+    private int escape = 0; //escape 상태 체크 용 변수, 1이면 탈출 성공 0이면 진행, -1 이면 게임 종료
+>>>>>>> origin/pilot
     private Inventory inv;
 
     Player(int hunger, int thirst, int action,Inventory inv, int fatigue) {
@@ -18,12 +33,26 @@ public class Player {
     }
 
     public void _showStatus(){
+<<<<<<< HEAD
+<<<<<<< HEAD
         System.out.println("---status---");
+=======
+>>>>>>> origin/driver
+=======
+        System.out.println("---status---");
+>>>>>>> origin/pilot
         System.out.println("hunger: "+this.hunger);
         System.out.println("thirst: "+this.thirst);
         System.out.println("action: "+this.action);
         System.out.println("fatigue: "+this.fatigue);
+<<<<<<< HEAD
+<<<<<<< HEAD
         System.out.println("------------");
+=======
+>>>>>>> origin/driver
+=======
+        System.out.println("------------");
+>>>>>>> origin/pilot
     }
 
     public int getHunger() {
@@ -58,6 +87,10 @@ public class Player {
         this.fatigue = fatigue;
     }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/pilot
     public int getEscape(){
         return this.escape;
     }
@@ -66,6 +99,11 @@ public class Player {
         this.escape = escape;
     }
 
+<<<<<<< HEAD
+=======
+>>>>>>> origin/driver
+=======
+>>>>>>> origin/pilot
     public Inventory getInv() {
         return inv;
     }
@@ -74,6 +112,10 @@ public class Player {
         this.inv = inv;
     }
     public void _showInventory(){
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/pilot
 
         System.out.println("---inventory---");
         int i = 0;
@@ -105,6 +147,118 @@ public class Player {
                     this.thirst = this.thirst - thirstRequire;
                 }
 
+<<<<<<< HEAD
+            }
+        }
+    }
+
+    //meet, fruits, water 사용
+    public void _eating(String propName){
+        if(propName.equals("meet")){
+            _gatheringUpdate("meet", -1, 0, 0, 0);
+            this.hunger+=5;
+            if(this.hunger > 10)
+                this.hunger = 10;
+        }
+        else if(propName.equals("fruits")){
+            _gatheringUpdate("fruits", -1, 0, 0, 0);
+            this.hunger+=3;
+            if(this.hunger > 10)
+                this.hunger = 10;
+        }
+        else if(propName.equals("water")){
+            _gatheringUpdate("water", -1, 0, 0, 0);
+            this.thirst += 4;
+            if(this.thirst > 10)
+                this.thirst = 10;
+        }
+        else return ;
+    }
+
+    //피로도 업데이트
+    // state = -1 : 피로도 감소
+    // state = 1 : 피로도 회복
+    public void _updateFatigue(int state, int checkFatigue){
+
+        if(state == 1){
+            this.fatigue += checkFatigue;
+            if(this.fatigue > 10){
+                this.fatigue = 10;
+            }
+        }
+        else if(state == -1){
+            this.fatigue -= checkFatigue;
+            if(this.fatigue < 0){
+                this.fatigue = 0;
+            }
+        }
+    }
+
+
+    //return 1 : 탈출 성공
+    //return 0 : 탈출 실패
+    public int _escape(int state){
+        
+        int randomNumber;
+        Random rm = new Random();
+        randomNumber = rm.nextInt(100);
+        //연기로 배에 구조요청
+        if(state == 0){
+            System.out.println("smoke to rescue");
+            if(randomNumber >= 95){
+                return 1;
+            }
+            else return 0;
+        }
+
+        //돌로 SOS 그려서 비행기에 구조 요청
+        else if(state == 1){
+            System.out.println("draw SOS to rescue");
+            if(randomNumber >= 95){
+                return 1;
+            }
+            else return 0;
+        }
+        //제작된 배로 직접 탈출
+        else if(state == 2){
+            System.out.println("try escape with your ship");
+            //ship2
+            //탈출 확률 75%
+            if((int)(this.inv.getResource())[11][1] >= 1){
+                if(randomNumber >= 25 ){
+                    return 1;
+                }
+                else return -1;
+            }
+            //ship1
+            //탈출 확률 50%
+            else if((int)(this.inv.getResource())[10][1] >= 1){
+                if(randomNumber >= 50 ){
+
+                    return 1;
+                }
+                else return -1;
+            }
+            //ship0
+            //탈출 확률 25%
+            else if((int)(this.inv.getResource())[9][1] >= 1){
+                if(randomNumber >= 75 ){
+
+                    return 1;
+                }
+                else return -1;
+            }
+            else return 0;
+        }
+        else return 0;
+    }
+=======
+        System.out.println(inv.getResource());
+    }
+
+    public void _gatheringUpdate(String name, int counts, int actionRequire){}
+>>>>>>> origin/driver
+=======
             }// 필요 cost에 못 미치더라도 모든 행동들은 가능
         }
     }
@@ -209,5 +363,6 @@ public class Player {
         }
         else return 0;
     }
+>>>>>>> origin/pilot
 
 }
