@@ -4,6 +4,5 @@ public class Main {
         Systems sys = new Systems(50,50);
        //Game Start
         sys._dayGame();
-
     }
 }

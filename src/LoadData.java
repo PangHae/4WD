@@ -72,12 +72,12 @@ public class LoadData {
                 {"gwent ","good"},
                 {"hearthstone ","garbage"}
         };
-        //_setlocation("test5");
+        _setlocation("test5");
         //_setdata(test);
         //_save();
-        //_showlist();
-        //String[][] str2 =_load();
-        //_showarr(str2);
+        _showlist();
+        String[][] str2 =_load();
+        _showarr(str2);
     }
 
     public void _showarr(String[][] str){
