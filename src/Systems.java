@@ -75,7 +75,7 @@ public class Systems {
         if(this.blockCmd==null){
             return -1;
         }
-        if(this.blockCmd[0].equals("gathering")){
+        if(this.blockCmd[0].equals("gathering") && this.blockCmd.length==2){
             if(this.blockCmd[1].equals("wood")) return 0;
             else if(this.blockCmd[1].equals("stone")) return 1;
             else if(this.blockCmd[1].equals("meat")) return 2;
@@ -83,9 +83,11 @@ public class Systems {
             else if(this.blockCmd[1].equals("water")) return 4;
             else return -2;
         }
-        else if(this.blockCmd[0].equals("make")){
+        else if(this.blockCmd[0].equals("make") && this.blockCmd.length==2){
+            System.out.println("dffds");
             if(_checkMaterials(this.blockCmd[1]) == 1){
-                if(this.blockCmd[1].equals("stoneSword")) return 10;
+                System.out.println("sdfjds123123321f");
+                if(this.blockCmd[1].equals("stonesword")) return 10;
                 else if(this.blockCmd[1].equals("stoneAxe")) return 11;
                 else if(this.blockCmd[1].equals("stonePickAxe")) return 12;
                 else if(this.blockCmd[1].equals("ship0")) return 20;
@@ -96,13 +98,16 @@ public class Systems {
                 else if(this.blockCmd[1].equals("house3")) return 32;
                 else return -2;
             }
-            else if(_checkMaterials(this.blockCmd[1]) == -1) return -10;
+            else if(_checkMaterials(this.blockCmd[1]) == -1){
+                System.out.println("재료부족");
+                return -10;
+            }
 
             else return -3;
             
         }
 
-        else if(this.blockCmd[0].equals("use")){
+        else if(this.blockCmd[0].equals("use") && this.blockCmd.length==2){
             if(_checkMaterials(this.blockCmd[1]) == 1){
                 if(this.blockCmd[1].equals("meat")) return 40;
                 else if(this.blockCmd[1].equals("fruits")) return 41;
@@ -113,7 +118,7 @@ public class Systems {
             else return -3;
 
         }
-        else if(this.blockCmd[0].equals("rescue")){
+        else if(this.blockCmd[0].equals("rescue") && this.blockCmd.length==2){
             if(_checkMaterials(this.blockCmd[1]) == 1){
                 if(this.blockCmd[1].equals("smoke")) return 80;
                 else if(this.blockCmd[1].equals("SOS")) return 81;
