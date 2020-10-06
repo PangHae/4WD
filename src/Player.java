@@ -185,7 +185,10 @@ public class Player {
             if(randomNumber >= 95){
                 return 1;
             }
-            else return 0;
+            else{
+                System.out.println("nothing happned");
+                return 0;  
+            } 
         }
 
         //돌로 SOS 그려서 비행기에 구조 요청
@@ -194,14 +197,17 @@ public class Player {
             if(randomNumber >= 95){
                 return 1;
             }
-            else return 0;
+            else {
+                System.out.println("nothing happned");
+                return 0;
+            }
         }
         //제작된 배로 직접 탈출
         else if(state == 2){
             System.out.println("try escape with your ship");
             //ship2
             //탈출 확률 75%
-            if((int)(this.inv.getResource())[11][1] >= 1){
+            if((int)(this.inv.getResource())[10][1] >= 1){
                 if(randomNumber >= 25 ){
                     return 1;
                 }
@@ -209,7 +215,7 @@ public class Player {
             }
             //ship1
             //탈출 확률 50%
-            else if((int)(this.inv.getResource())[10][1] >= 1){
+            else if((int)(this.inv.getResource())[9][1] >= 1){
                 if(randomNumber >= 50 ){
 
                     return 1;
@@ -218,7 +224,7 @@ public class Player {
             }
             //ship0
             //탈출 확률 25%
-            else if((int)(this.inv.getResource())[9][1] >= 1){
+            else if((int)(this.inv.getResource())[8][1] >= 1){
                 if(randomNumber >= 75 ){
 
                     return 1;

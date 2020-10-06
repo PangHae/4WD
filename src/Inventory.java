@@ -1,11 +1,11 @@
 public class Inventory {
-    private Object resource[][] = {{"water", 0},
-            {"food",0},
+    private Object resource[][] = {
+            {"water", 0},
             {"wood",0},
             {"stone",0},
-            {"stoneSword",0},
-            {"stoneAxe",0},
-            {"stonePickAxe",0},
+            {"stonesword",0},
+            {"stoneaxe",0},
+            {"stonepickaxe",0},
             {"meat",0},
             {"fruits",0},
             {"ship0",0},
@@ -18,16 +18,24 @@ public class Inventory {
     };
     //counts
 
-    Inventory(int water, int food, int wood, int stone, int stoneSword, int stoneAxe, int stonePickAxe, int meat, int fruits) {
+    Inventory(int water, int wood, int stone, int stonesword, int stoneaxe, int stonepickaxe, int meat, int fruits
+        , int ship0, int ship1, int ship2, int house0, int house1, int house2, int house3){
         setStone(stone);
-        setFood(food);
-        setStoneAxe(stoneAxe);
-        setStonePickAxe(stonePickAxe);
-        setStoneSword(stoneSword);
+        setStoneAxe(stoneaxe);
+        setStonePickAxe(stonepickaxe);
+        setStoneSword(stonesword);
         setWood(wood);
         setWater(water);
-        setResource(meat, 7);
-        setResource(fruits, 8);
+        setResource(meat, 6);
+        setResource(fruits, 7);
+        setResource(ship0, 8);
+        setResource(ship1, 9);
+        setResource(ship2, 10);
+        setResource(house0, 11);
+        setResource(house1 ,12);
+        setResource(house2, 13);
+        setResource(house3,14);
+
     }
     //getter & setter
 
@@ -38,23 +46,20 @@ public class Inventory {
     public void setWater(int water){
         resource[0][1] = water;
     }
-    public void setFood(int food){
-        resource[1][1] = food;
-    }
     public void setWood(int wood){
-        resource[2][1] = wood;
+        resource[1][1] = wood;
     }
     public void setStone(int stone){
-        resource[3][1] = stone;
+        resource[2][1] = stone;
     }
-    public void setStoneSword(int stoneSword){
-        resource[4][1] = stoneSword;
+    public void setStoneSword(int stonesword){
+        resource[3][1] = stonesword;
     }
-    public void setStoneAxe(int stoneAxe){
-        resource[5][1] = stoneAxe;
+    public void setStoneAxe(int stoneaxe){
+        resource[4][1] = stoneaxe;
     }
-    public void setStonePickAxe(int stonePickAxe){
-        resource[6][1] = stonePickAxe;
+    public void setStonePickAxe(int stonepickaxe){
+        resource[5][1] = stonepickaxe;
     }
 
 

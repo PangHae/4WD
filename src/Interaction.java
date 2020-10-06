@@ -77,13 +77,13 @@ public class Interaction{
 
     // 집 확인해서 행동력 증가
     public int _checkHouse(){
-        if((int)(this.p1.getInv().getResource())[15][1] > 0 ){
+        if((int)(this.p1.getInv().getResource())[14][1] > 0 ){
             return 5;
         }
-        else if((int)(this.p1.getInv().getResource())[14][1] > 0 ){
+        else if((int)(this.p1.getInv().getResource())[13][1] > 0 ){
             return 3;
         }
-        else if((int)(this.p1.getInv().getResource())[13][1] > 0 ){
+        else if((int)(this.p1.getInv().getResource())[12][1] > 0 ){
             return 1;
         }
         else return 0;
