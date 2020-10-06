@@ -17,7 +17,7 @@ public class Commands {
 //    };
 
 
-    private String[] helpList={"gathering","command","escape","gameexplain","inventory","item","player"};
+    private String[] helpList={"gathering","command","escape","gameexplain","inventory","item","player", "save", "savelist", "load"};
 
 
     Commands(){
@@ -121,6 +121,12 @@ public class Commands {
             rd._readTxt("player");
         }else if(str.equals("gameexplain")){
             rd._readTxt("gameExplain");
+        }else if(str.equals("save")){
+            rd._readTxt("save");
+        }else if(str.equals("savelist")){
+            rd._readTxt("savelist");
+        }else if(str.equals("load")){
+            rd._readTxt("load");
         }
     }
 

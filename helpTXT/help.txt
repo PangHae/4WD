@@ -7,3 +7,6 @@ help gathering : 수집가능한 아이템들에 대해 설명해줍니다.
 help inventory : 인벤토리와 자원들에 대해 설명해줍니다.
 help item : 제작 가능한 아이템에 대해 알려줍니다.
 help player : 플레이어에 대해 알려줍니다.
+help save : 세이브 방법을 알려줍니다.
+help savelist : 세이브 파일의 목록을 보여줍니다.
+help load : 로드 방법을 알려줍니다.

@@ -83,7 +83,7 @@ public class Player {
         System.out.println("---------------");
     }
 
-    public Object[][] _sendPlayerData(){
+    /*public Object[][] _sendPlayerData(){
 
         Object invData [][] = this.inv.getResource();
         for(int i = 0; i < invData.length; i++){
@@ -101,7 +101,7 @@ public class Player {
 
         return allData;
 
-    }
+    }*/ // 저장할때 필요한 데이터 형식으로 바꿀라고 만들어 놓은 함순데 LHH씨가 일단 안 쓴대서 주석처리
 
     public void _gatheringUpdate(String name, int counts, int actionRequire, int hungerRequire, int thirstRequire){
 
