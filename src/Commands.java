@@ -17,7 +17,7 @@ public class Commands {
 //    };
 
 
-    private String[] helpList={"gathering","command","escape","gameexplain","inventory","item","player"};
+    private String[] helpList={"gathering","command","escape","gameexplain","inventory","item","player", "save", "savelist", "load"};
 
 
     Commands(){
@@ -36,8 +36,8 @@ public class Commands {
 
                 if (blockCmd[0].equals("help")) {
 
+                    /*
                     if (blockCmd.length != 1) {
-                        System.out.println("??");
                         for (int i = 0; i < helpList.length; i++) {
                             if (blockCmd[1].equals(helpList[i])) {
                                 _help(blockCmd[1]);
@@ -50,6 +50,23 @@ public class Commands {
                         System.out.println("help만 입력시");
                         read._readTxt("help");
                         return null;
+                    }*/
+                    String[] helpCmd = new String[2];
+                    helpCmd[0] = blockCmd[0];
+                    helpCmd[1] = "error";
+                    //help + list
+                    if(blockCmd.length != 1){
+                        for(int i =0; i< helpList.length; i++){
+                            if(blockCmd[1].equals(helpList[i])){
+                                helpCmd[1] = blockCmd[1];
+                            }
+                        }  
+                        return helpCmd;
+                    }
+                    //help
+                    else if(blockCmd.length == 1){
+                        helpCmd[1] = "null";
+                        return helpCmd;
                     }
 
                 }else if (blockCmd[0].equals("save")){   // 재우 : 기준 blockcmd처럼 String배열이용해서 내용 보냄 savefileName에서 0인덱스ㅡ save 1인덱스는 입력값
@@ -121,6 +138,12 @@ public class Commands {
             rd._readTxt("player");
         }else if(str.equals("gameexplain")){
             rd._readTxt("gameExplain");
+        }else if(str.equals("save")){
+            rd._readTxt("save");
+        }else if(str.equals("savelist")){
+            rd._readTxt("savelist");
+        }else if(str.equals("load")){
+            rd._readTxt("load");
         }
     }
 

@@ -10,7 +10,9 @@ public class Systems {
     private int action;
     private Interaction interaction;
     private LoadData sl = new LoadData();
+    private TxtRead trd = new TxtRead();
     private String[][] loadData = new String[21][2];
+    
     
     Systems(int maximumDays,int times){
         this.maximumDays = maximumDays;
@@ -27,7 +29,7 @@ public class Systems {
                 interpretedCommand = _interpretCommand();
                 _excuteCommand(interpretedCommand);
                 action = _checkAction();
-                p1._showInventory();
+                //p1._showInventory();
                 p1._showStatus();
                 if(action == 1){
                     _nextDay();
@@ -152,6 +154,21 @@ public class Systems {
         }
         else if(this.blockCmd[0].equals("savelist")){
             return 302;
+        }
+        else if(this.blockCmd[0].equals("help")){
+            //인자값 오류
+            if(this.blockCmd[1].equals("error")){
+                return -1;
+            }
+            //인자값 없을 때
+            else if(this.blockCmd[1].equals("null")){
+                return 400;
+            }
+            //인자값 있을 때
+            else return 401;
+        }
+        else if(this.blockCmd[0].equals("showinven")){
+            return 500;
         }
         else{
             return -1;
@@ -387,6 +404,16 @@ public class Systems {
         else if(command == 302){
             sl._showlist();
         }
+
+        else if(command == 400){
+            trd._readTxt("help");
+        }
+        else if(command == 401){
+            _help(this.blockCmd[1]);
+        }
+        else if(command == 500){
+            p1._showInventory();
+        }
         else if(command == -3){
             System.out.println("not enough materials");
         }
@@ -560,5 +587,33 @@ public class Systems {
         this.p1.setFatigue(Integer.parseInt(loadData[19][1]));
         this.days = Integer.parseInt(loadData[20][1]);
 
+    }
+
+    //도움말 불러오기
+    
+    private void _help(String str){//help 했을때 실행되는 함수
+
+       
+        if(str.equals("gathering")){    //파일(txt)이용해서 help내용 가져오게 하는게 편할듯
+            trd._readTxt("gathering");
+        }else if(str.equals("command")){
+            trd._readTxt("command");
+        }else if(str.equals("escape")){
+            trd._readTxt("escape");
+        }else if(str.equals("inventory")){
+            trd._readTxt("inventory");
+        }else if(str.equals("item")){
+            trd._readTxt("item");
+        }else if(str.equals("player")){
+            trd._readTxt("player");
+        }else if(str.equals("gameexplain")){
+            trd._readTxt("gameExplain");
+        }else if(str.equals("save")){
+            trd._readTxt("save");
+        }else if(str.equals("savelist")){
+            trd._readTxt("savelist");
+        }else if(str.equals("load")){
+            trd._readTxt("load");
+        }
     }
 }
