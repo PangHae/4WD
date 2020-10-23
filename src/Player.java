@@ -83,7 +83,7 @@ public class Player {
         System.out.println("---------------");
     }
 
-    public Object[][] _sendPlayerData(){
+    /*public Object[][] _sendPlayerData(){
 
         Object invData [][] = this.inv.getResource();
         for(int i = 0; i < invData.length; i++){
@@ -101,7 +101,7 @@ public class Player {
 
         return allData;
 
-    }
+    }*/ // 저장할때 필요한 데이터 형식으로 바꿀라고 만들어 놓은 함순데 LHH씨가 일단 안 쓴대서 주석처리
 
     public void _gatheringUpdate(String name, int counts, int actionRequire, int hungerRequire, int thirstRequire){
 
@@ -185,7 +185,10 @@ public class Player {
             if(randomNumber >= 95){
                 return 1;
             }
-            else return 0;
+            else{
+                System.out.println("nothing happned");
+                return 0;  
+            } 
         }
 
         //돌로 SOS 그려서 비행기에 구조 요청
@@ -194,14 +197,17 @@ public class Player {
             if(randomNumber >= 95){
                 return 1;
             }
-            else return 0;
+            else {
+                System.out.println("nothing happned");
+                return 0;
+            }
         }
         //제작된 배로 직접 탈출
         else if(state == 2){
             System.out.println("try escape with your ship");
             //ship2
             //탈출 확률 75%
-            if((int)(this.inv.getResource())[11][1] >= 1){
+            if((int)(this.inv.getResource())[10][1] >= 1){
                 if(randomNumber >= 25 ){
                     return 1;
                 }
@@ -209,7 +215,7 @@ public class Player {
             }
             //ship1
             //탈출 확률 50%
-            else if((int)(this.inv.getResource())[10][1] >= 1){
+            else if((int)(this.inv.getResource())[9][1] >= 1){
                 if(randomNumber >= 50 ){
 
                     return 1;
@@ -218,7 +224,7 @@ public class Player {
             }
             //ship0
             //탈출 확률 25%
-            else if((int)(this.inv.getResource())[9][1] >= 1){
+            else if((int)(this.inv.getResource())[8][1] >= 1){
                 if(randomNumber >= 75 ){
 
                     return 1;

@@ -4,6 +4,7 @@ import java.util.*;
 public class Commands {
     private String rowCmd = null;
     private String[] blockCmd;
+    private String[] saveFileName= new String[2];
     private Scanner inputScanner;
 //    private String[][] possible = {
 //            {"gathering","wood","stone","meat","fruits","water"},
@@ -15,7 +16,10 @@ public class Commands {
 //            {"escape"}
 //    };
 
-    private String[] helpList={"gathering","command","escape","gameexplain","inventory","item","player"};
+
+    private String[] helpList={"gathering","command","escape","gameexplain","inventory","item","player", "save", "savelist", "load"};
+
+
     Commands(){
         this.inputScanner = new Scanner(System.in);
     }
@@ -25,30 +29,84 @@ public class Commands {
         while(true){
 
             System.out.print("input Command: ");
-            this.rowCmd = this.inputScanner.nextLine().toLowerCase();
+            this.rowCmd = this.inputScanner.nextLine().toLowerCase().trim();
 
             _cleaning(rowCmd.split("\\s+"));
+            if(blockCmd != null) { // 재우 : null 예외처리
 
-            if(blockCmd[0].equals("help")){
+                if (blockCmd[0].equals("help")) {
 
-                if(blockCmd.length!=1){
-                    System.out.println("??");
-                    for(int i=0;i<helpList.length;i++){
-                        if(blockCmd[1].equals(helpList[i])){
-                            _help(blockCmd[1]);
-                            System.out.println("help list입력시");
-                            return null;
+                    /*
+                    if (blockCmd.length != 1) {
+                        for (int i = 0; i < helpList.length; i++) {
+                            if (blockCmd[1].equals(helpList[i])) {
+                                _help(blockCmd[1]);
+                                System.out.println("help list입력시");
+                                return null;
+                            }
                         }
+                    } else if (blockCmd.length == 1) {
+                        TxtRead read = new TxtRead();
+                        System.out.println("help만 입력시");
+                        read._readTxt("help");
+                        return null;
+                    }*/
+                    String[] helpCmd = new String[2];
+                    helpCmd[0] = blockCmd[0];
+                    helpCmd[1] = "error";
+                    //help + list
+                    if(blockCmd.length != 1){
+                        for(int i =0; i< helpList.length; i++){
+                            if(blockCmd[1].equals(helpList[i])){
+                                helpCmd[1] = blockCmd[1];
+                            }
+                        }  
+                        return helpCmd;
                     }
-                }else if(blockCmd.length==1){
-                    _help("");
-                    System.out.println("help만 입력시");
-                    return null;
+                    //help
+                    else if(blockCmd.length == 1){
+                        helpCmd[1] = "null";
+                        return helpCmd;
+                    }
+
+                }else if (blockCmd[0].equals("save")){   // 재우 : 기준 blockcmd처럼 String배열이용해서 내용 보냄 savefileName에서 0인덱스ㅡ save 1인덱스는 입력값
+                    if(blockCmd.length==1) {
+                        System.out.print("Write the save file name that you want : ");
+                        rowCmd = inputScanner.nextLine();
+                        saveFileName[0] = blockCmd[0];
+                        saveFileName[1] = rowCmd;
+                        System.out.println(saveFileName[0] + " " + saveFileName[1]);
+                        return saveFileName;
+                    }else {
+                        return null;
+                    }
+                }else if (blockCmd[0].equals("load")){   // 재우 : 기준 blockcmd처럼 String배열이용해서 내용 보냄 savefileName에서 0인덱스ㅡ save 1인덱스는 입력값
+                    if(blockCmd.length==1) {
+                        System.out.print("Load the save file name that you want : ");
+                        rowCmd = inputScanner.nextLine();
+                        saveFileName[0] = blockCmd[0];
+                        saveFileName[1] = rowCmd;
+                        System.out.println(saveFileName[0] + " " + saveFileName[1]);
+                        return saveFileName;
+                    }else {
+                        return null;
+                    }
+                }else if(blockCmd[0].equals("savelist")){
+                    if(blockCmd.length==1) {
+                        return blockCmd;
+                    }else {
+                        return null;
+                    }
+                }
+                else if (blockCmd != null ) {  // 재우 : 명령어 길이 확인 및 제대로 들어가는 경우만 되게 함
+                    if(((blockCmd[0].equals("sleep") || blockCmd[0].equals("escape"))&&blockCmd.length!=1)){
+                        return null;
+                    }
+                    return this.blockCmd;
                 }
 
-                //help 함수
-            }else if(blockCmd !=null){
-                return this.blockCmd;
+            }else{
+                return null;
             }
 
         }
@@ -56,9 +114,9 @@ public class Commands {
 
     private void _cleaning(String[] str){
 
-        if(str[0].equals("") || str.length>3){ //처음 공백 or 길이 3 보다 클경우 예외 처리
+        if(str[0].equals("") || str.length>=3){ //처음 공백 or 길이 3 보다 클경우 예외 처리
             this.blockCmd=null;
-        }else if(str.length<=3 && str[0] !=null){ //명령어 들어가는 경우
+        }else if(str.length<3 && str[0] !=null){ //명령어 들어가는 경우
             this.blockCmd=str;
         }else{
             this.blockCmd=null;
@@ -66,37 +124,42 @@ public class Commands {
 
     }
 
-    private void _checksplit(){
-        String[] temp=null;
+//    private void _checksplit(){
+//        String[] temp=null;
+//
+//        if(blockCmd[0] == null){
+//            temp[0] = blockCmd[1];
+//            temp[1] = blockCmd[2];
+//            blockCmd=null;
+//            blockCmd=temp;
+//        }
+//    }
 
-        if(blockCmd[0] == null){
-            temp[0] = blockCmd[1];
-            temp[1] = blockCmd[2];
-            blockCmd=null;
-            blockCmd=temp;
-        }
-    }
-
-    private void _help(String str){//help 했을때 실행되는 함수
-
-        TxtRead rd = new TxtRead();
-        if(str.equals("gathering")){    //파일(txt)이용해서 help내용 가져오게 하는게 편할듯
-            rd._readTxt("gathering");
-        }else if(str.equals("command")){
-            rd._readTxt("command");
-        }else if(str.equals("escape")){
-            rd._readTxt("escape");
-        }else if(str.equals("inventory")){
-            rd._readTxt("inventory");
-        }else if(str.equals("item")){
-            rd._readTxt("item");
-        }else if(str.equals("player")){
-            rd._readTxt("player");
-        }else if(str.equals("gameexplain")){
-            rd._readTxt("gameExplain");
-        }else{
-        }
-    }
+//    private void _help(String str){//help 했을때 실행되는 함수
+//
+//        TxtRead rd = new TxtRead();
+//        if(str.equals("gathering")){    //파일(txt)이용해서 help내용 가져오게 하는게 편할듯
+//            rd._readTxt("gathering");
+//        }else if(str.equals("command")){
+//            rd._readTxt("command");
+//        }else if(str.equals("escape")){
+//            rd._readTxt("escape");
+//        }else if(str.equals("inventory")){
+//            rd._readTxt("inventory");
+//        }else if(str.equals("item")){
+//            rd._readTxt("item");
+//        }else if(str.equals("player")){
+//            rd._readTxt("player");
+//        }else if(str.equals("gameexplain")){
+//            rd._readTxt("gameExplain");
+//        }else if(str.equals("save")){
+//            rd._readTxt("save");
+//        }else if(str.equals("savelist")){
+//            rd._readTxt("savelist");
+//        }else if(str.equals("load")){
+//            rd._readTxt("load");
+//        }
+//    }
 
 //    test
 //    public void _commandTest() {

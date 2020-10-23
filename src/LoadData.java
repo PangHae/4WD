@@ -95,7 +95,7 @@ public class LoadData {
     }
 
     //show save lists
-    private void _showlist(){
+    public void _showlist(){
         File path = new File("./Data/");
         File[] lists = path.listFiles();
         System.out.println("--Save Lists--");
@@ -105,7 +105,7 @@ public class LoadData {
         System.out.println("--Save Lists End--");
     }
 
-    private void _save(){
+    public void _save(){
         byte tdata[] = this.data.getBytes();
         try{
             FileOutputStream outstreams = new FileOutputStream("./Data/"+this.loadlocation+".txt");
@@ -121,7 +121,7 @@ public class LoadData {
 
     }
 
-    private String[][] _load(){
+    public String[][] _load(){
 
         int Rep1=0;
         try{
@@ -165,7 +165,7 @@ public class LoadData {
     }
 
     //Queue
-    private void _cleanqueue(){
+    public void _cleanqueue(){
         this.queue.clear();
     }
 }
