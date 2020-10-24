@@ -104,7 +104,7 @@ public class Systems {
                 else return -2;
             }
             else if(_checkMaterials(this.blockCmd[1]) == -1){
-                System.out.println("만들 수 없는 아이템입니다.");
+                
                 return -10;
             }
 
@@ -180,11 +180,11 @@ public class Systems {
     //해석된 커맨드의 리턴 값으로 실제 커맨드 실행
     private void _excuteCommand(int command){
         int currentAction = this.p1.getAction();
-        String notEnoughAction = "not enough Action";
+        String notEnoughAction = "not enough action!!";
         if(command == 0){
             if(currentAction >= 1){
                 if(this.interaction._checkEquipment("stoneaxe") == 1){
-                    System.out.println("gathering wood wiht stoneaxe!!");
+                    System.out.println("gathering wood with stoneaxe!!");
                     interaction._gathering("wood", 100, 1, 1,2,13,8);
                 }
                 else{
@@ -201,7 +201,7 @@ public class Systems {
             if(currentAction >= 1){
 
                 if(this.interaction._checkEquipment("stonepickaxe") == 1){
-                    System.out.println("gathering stone with stonepickaxe");
+                    System.out.println("gathering stone with stonepickaxe!!");
                     interaction._gathering("stone", 100, 1, 1, 2, 13, 8);
 
                 }
@@ -234,7 +234,7 @@ public class Systems {
         }
         else if(command == 3){
             if(currentAction >= 1){
-                System.out.println("gathering fruits");
+                System.out.println("gathering fruits!!");
                 interaction._gathering("fruits", 100, 1, 1, 2, 3, 1);
             }
             else{
@@ -244,7 +244,7 @@ public class Systems {
 
         else if(command == 4){
             if(currentAction >= 1){
-                System.out.println("gathering water");
+                System.out.println("gathering water!!");
                 interaction._gathering("water", 100, 1, 1, 1, 5, 2);
             }
             else{
@@ -372,7 +372,7 @@ public class Systems {
             }
         }
         else if(command == 100){
-            System.out.println("sleep!");
+            System.out.println("sleep!!");
             this.p1._updateFatigue(1, this.p1.getAction());
             this.p1.setAction(0);
 
@@ -416,7 +416,7 @@ public class Systems {
             p1._showInventory();
         }
         else if(command == -3){
-            System.out.println("not enough materials");
+            System.out.println("not enough materials!!");
         }
         else{
             System.out.println("error!!");
