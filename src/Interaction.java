@@ -31,7 +31,6 @@ public class Interaction{
         int proba = (int)(Math.random()*100);
         int extraCount = (int)((Math.random()*10000)%10);
         if (extraCount >= this.maximums) extraCount = this.maximums-this.minimums;
-        System.out.println(proba);
         if(this.probability >= proba) {
             return (extraCount+this.minimums);
         }else{

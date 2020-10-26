@@ -23,15 +23,14 @@ public class Systems {
 
         _setPlayers();
         interaction =  new Interaction(this.p1);
-        p1._showStatus();
        while(true){
             if(_isNotFinished()){
+                p1._showStatus();
                 this.blockCmd = this.cmd._inputCommand();
                 interpretedCommand = _interpretCommand();
                 _excuteCommand(interpretedCommand);
                 action = _checkAction();
-                //p1._showInventory();
-                p1._showStatus();
+                
                 if(action == 1){
                     _nextDay();
                     System.out.println(this.days + "day");                    
