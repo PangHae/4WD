@@ -181,30 +181,30 @@ public class Player {
         randomNumber = rm.nextInt(100);
         //연기로 배에 구조요청
         if(state == 0){
-            System.out.println("smoke to rescue");
+            System.out.println("smoke to rescue!!");
             if(randomNumber >= 95){
                 return 1;
             }
             else{
-                System.out.println("nothing happned");
+                System.out.println("nothing happned!!");
                 return 0;  
             } 
         }
 
         //돌로 SOS 그려서 비행기에 구조 요청
         else if(state == 1){
-            System.out.println("draw SOS to rescue");
+            System.out.println("draw SOS to rescue!!");
             if(randomNumber >= 95){
                 return 1;
             }
             else {
-                System.out.println("nothing happned");
+                System.out.println("nothing happned!!");
                 return 0;
             }
         }
         //제작된 배로 직접 탈출
         else if(state == 2){
-            System.out.println("try escape with your ship");
+            System.out.println("try escape with your ship!!");
             //ship2
             //탈출 확률 75%
             if((int)(this.inv.getResource())[10][1] >= 1){

@@ -143,7 +143,8 @@ public class Systems {
         }
     
         else if(this.blockCmd[0].equals("cheat")){
-            return 200;
+            return -1;
+            //return 200;
         }
 
         else if(this.blockCmd[0].equals("save")){
@@ -571,7 +572,6 @@ public class Systems {
             {"days ",Integer.toString(this.days)}
         };
 
-        System.out.println(saveData[0][1]);
         return saveData;
     }
 
