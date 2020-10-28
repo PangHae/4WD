@@ -10,7 +10,9 @@ public class Systems {
     private int action;
     private Interaction interaction;
     private LoadData sl = new LoadData();
+    private TxtRead trd = new TxtRead();
     private String[][] loadData = new String[21][2];
+    
     
     Systems(int maximumDays,int times){
         this.maximumDays = maximumDays;
@@ -18,16 +20,17 @@ public class Systems {
     }
 
     public void _dayGame(){
-        
+
         _setPlayers();
         interaction =  new Interaction(this.p1);
+        p1._showStatus();
        while(true){
             if(_isNotFinished()){
                 this.blockCmd = this.cmd._inputCommand();
                 interpretedCommand = _interpretCommand();
                 _excuteCommand(interpretedCommand);
                 action = _checkAction();
-                p1._showInventory();
+                //p1._showInventory();
                 p1._showStatus();
                 if(action == 1){
                     _nextDay();
@@ -101,7 +104,7 @@ public class Systems {
                 else return -2;
             }
             else if(_checkMaterials(this.blockCmd[1]) == -1){
-                System.out.println("만들 수 없는 아이템입니다.");
+                
                 return -10;
             }
 
@@ -153,6 +156,21 @@ public class Systems {
         else if(this.blockCmd[0].equals("savelist")){
             return 302;
         }
+        else if(this.blockCmd[0].equals("help")){
+            //인자값 오류
+            if(this.blockCmd[1].equals("error")){
+                return -1;
+            }
+            //인자값 없을 때
+            else if(this.blockCmd[1].equals("null")){
+                return 400;
+            }
+            //인자값 있을 때
+            else return 401;
+        }
+        else if(this.blockCmd[0].equals("showinven")){
+            return 500;
+        }
         else{
             return -1;
         }
@@ -162,11 +180,11 @@ public class Systems {
     //해석된 커맨드의 리턴 값으로 실제 커맨드 실행
     private void _excuteCommand(int command){
         int currentAction = this.p1.getAction();
-        String notEnoughAction = "not enough Action";
+        String notEnoughAction = "not enough action!!";
         if(command == 0){
             if(currentAction >= 1){
                 if(this.interaction._checkEquipment("stoneaxe") == 1){
-                    System.out.println("gathering wood wiht stoneaxe!!");
+                    System.out.println("gathering wood with stoneaxe!!");
                     interaction._gathering("wood", 100, 1, 1,2,13,8);
                 }
                 else{
@@ -183,7 +201,7 @@ public class Systems {
             if(currentAction >= 1){
 
                 if(this.interaction._checkEquipment("stonepickaxe") == 1){
-                    System.out.println("gathering stone with stonepickaxe");
+                    System.out.println("gathering stone with stonepickaxe!!");
                     interaction._gathering("stone", 100, 1, 1, 2, 13, 8);
 
                 }
@@ -216,7 +234,7 @@ public class Systems {
         }
         else if(command == 3){
             if(currentAction >= 1){
-                System.out.println("gathering fruits");
+                System.out.println("gathering fruits!!");
                 interaction._gathering("fruits", 100, 1, 1, 2, 3, 1);
             }
             else{
@@ -226,7 +244,7 @@ public class Systems {
 
         else if(command == 4){
             if(currentAction >= 1){
-                System.out.println("gathering water");
+                System.out.println("gathering water!!");
                 interaction._gathering("water", 100, 1, 1, 1, 5, 2);
             }
             else{
@@ -354,7 +372,7 @@ public class Systems {
             }
         }
         else if(command == 100){
-            System.out.println("sleep!");
+            System.out.println("sleep!!");
             this.p1._updateFatigue(1, this.p1.getAction());
             this.p1.setAction(0);
 
@@ -387,8 +405,18 @@ public class Systems {
         else if(command == 302){
             sl._showlist();
         }
+
+        else if(command == 400){
+            trd._readTxt("help");
+        }
+        else if(command == 401){
+            _help(this.blockCmd[1]);
+        }
+        else if(command == 500){
+            p1._showInventory();
+        }
         else if(command == -3){
-            System.out.println("not enough materials");
+            System.out.println("not enough materials!!");
         }
         else{
             System.out.println("error!!");
@@ -560,5 +588,33 @@ public class Systems {
         this.p1.setFatigue(Integer.parseInt(loadData[19][1]));
         this.days = Integer.parseInt(loadData[20][1]);
 
+    }
+
+    //도움말 불러오기
+    
+    private void _help(String str){//help 했을때 실행되는 함수
+
+       
+        if(str.equals("gathering")){    //파일(txt)이용해서 help내용 가져오게 하는게 편할듯
+            trd._readTxt("gathering");
+        }else if(str.equals("command")){
+            trd._readTxt("command");
+        }else if(str.equals("escape")){
+            trd._readTxt("escape");
+        }else if(str.equals("inventory")){
+            trd._readTxt("inventory");
+        }else if(str.equals("item")){
+            trd._readTxt("item");
+        }else if(str.equals("player")){
+            trd._readTxt("player");
+        }else if(str.equals("gameexplain")){
+            trd._readTxt("gameExplain");
+        }else if(str.equals("save")){
+            trd._readTxt("save");
+        }else if(str.equals("savelist")){
+            trd._readTxt("savelist");
+        }else if(str.equals("load")){
+            trd._readTxt("load");
+        }
     }
 }
