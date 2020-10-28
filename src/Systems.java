@@ -418,7 +418,7 @@ public class Systems {
             System.out.println("not enough materials!!");
         }
         else{
-            System.out.println("error!!");
+            System.out.println("incorrecct command!!");
         }
     }
 
