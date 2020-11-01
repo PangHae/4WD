@@ -1,9 +1,9 @@
-ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” ë„ì›€ë§ìž…ë‹ˆë‹¤.
+»ç¿ëÇÒ ¼ö ÀÖ´Â µµ¿ò¸»ÀÔ´Ï´Ù.
 
-help command : ì£¼ìš” commandë“¤ì— ëŒ€í•´ ì„¤ëª…í•´ì¤ë‹ˆë‹¤.
-help escape : íƒˆì¶œ ë°©ë²•ì— ëŒ€í•´ ì„¤ëª…í•´ì¤ë‹ˆë‹¤.
-help gameExplain : ì „ë°˜ì ì¸ ê²Œìž„ì— ëŒ€í•´ ì„¤ëª…í•´ì¤ë‹ˆë‹¤.
-help gathering : ìˆ˜ì§‘ê°€ëŠ¥í•œ ì•„ì´í…œë“¤ì— ëŒ€í•´ ì„¤ëª…í•´ì¤ë‹ˆë‹¤.
-help inventory : ì¸ë²¤í† ë¦¬ì™€ ìžì›ë“¤ì— ëŒ€í•´ ì„¤ëª…í•´ì¤ë‹ˆë‹¤.
-help item : ì œìž‘ ê°€ëŠ¥í•œ ì•„ì´í…œì— ëŒ€í•´ ì•Œë ¤ì¤ë‹ˆë‹¤.
-help player : í”Œë ˆì´ì–´ì— ëŒ€í•´ ì•Œë ¤ì¤ë‹ˆë‹¤.
+help command : ÁÖ¿ä commandµé¿¡ ´ëÇØ ¼³¸íÇØÁÝ´Ï´Ù.
+help escape : Å»Ãâ ¹æ¹ý¿¡ ´ëÇØ ¼³¸íÇØÁÝ´Ï´Ù.
+help gameExplain : Àü¹ÝÀûÀÎ °ÔÀÓ¿¡ ´ëÇØ ¼³¸íÇØÁÝ´Ï´Ù.
+help gathering : ¼öÁý°¡´ÉÇÑ ¾ÆÀÌÅÛµé¿¡ ´ëÇØ ¼³¸íÇØÁÝ´Ï´Ù.
+help inventory : ÀÎº¥Åä¸®¿Í ÀÚ¿øµé¿¡ ´ëÇØ ¼³¸íÇØÁÝ´Ï´Ù.
+help item : Á¦ÀÛ °¡´ÉÇÑ ¾ÆÀÌÅÛ¿¡ ´ëÇØ ¾Ë·ÁÁÝ´Ï´Ù.
+help player : ÇÃ·¹ÀÌ¾î¿¡ ´ëÇØ ¾Ë·ÁÁÝ´Ï´Ù.
