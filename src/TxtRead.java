@@ -6,7 +6,7 @@ public class TxtRead {
 
     public void _readTxt(String command){
         command = command.toLowerCase();
-        String txtPath = "./helpTxt/"+ command + ".txt";
+        String txtPath = "./helpTXT/"+ command + ".txt";
 
         try{
             File file = new File(txtPath);
