@@ -1,22 +1,22 @@
-수집에 관한 설명입니다.
+A description of the collection.
 
-수집 가능한 아이템들은 다음과 같습니다.
+Items that can be collected are as follows.
 
 water, meat, fruits, wood, stone
 
-각각의 아이템들은 행동력, 허기, 갈증을 소모하여 획득합니다.
+Each item is obtained by consuming action, hunger, and thirst.
 
-아이템을 수집할 때, 장착하고 있는 아이템에 따라 드랍확률이 달라집니다.
+When collecting items, the drop rate varies depending on the item you are wearing.
 
-자세한 수치는 다음과 같습니다.
+Detailed figures are as follows:
 
-자원채집
-	장비	행동력	허기	갈증	max	min
-wood	도끼	1	1	2	13	8
+Resource collection
+	equip	action	hunger	thirst	max	min
+wood	axe	1	1	2	13	8
 	x	1	1	2	7	2
-stone	곡괭이	1	1	2	13	8
+stone	pickaxe	1	1	2	13	8
 	x	1	1	2	7	2
-meat	칼	3	3	2	10	7
+meat	sword	3	3	2	10	7
 	x	3	3	2	5	3
 fruits		1	1	2	3	1
 water		1	1	1	5	2

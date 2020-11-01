@@ -1,12 +1,11 @@
-플레이어에 관한 설명입니다.
+A description of the player.
 
-플레이어에겐 허기, 갈증, 행동력, 피로도 총 네 가지의 상태가 존재합니다.
+There are four different states of hunger, thirst, behavior, and fatigue for the player.
 
-모든 상태는 0~10의 상태를 가집니다. 
+All states have states from 0 to 10.
 
-플레이어의 당일 피로도를 확인하여 다음 날의 활동력에서 차감합니다.
+It is deducted from the activity of the next day.
 
-허기 수치가 0이면 다음 날 피로도를 1, 갈증 수치가 0이면 다음 날 피로도를 2 차감합니다.
-피로도가 5 이하이면 다음 날 행동력을 5 차감합니다.
-피로도가 0이 되면 사망합니다.
-
+If the hunger value is 0, the next day's fatigue is deducted by 1, and if the thirst is 0, the next day's fatigue is subtracted by 2.
+If it is 5 or less, the next day's action is deducted by 5.
+When the fatigue level reaches zero, it dies.

@@ -1,7 +1,7 @@
-인벤토리에는 주요 사용 가능한 자원들을 표시해줍니다.
+The inventory shows key available resources.
 
-자원의 종류
-1. water
+Type of resource
+1.water
 2. meat
 3. fruits
 4. wood
@@ -12,8 +12,8 @@
 9. ship
 10. house
 
-water, meat, fruits는 각각 섭취 시 갈증, 허기 수치를 일시적으로 회복시켜줍니다.
-wood, stone은 생존을 위한 아이템들을 제작하는데 사용됩니다.
-stoneSword, stoneAxe, stonePickAxe는 생존을 위한 아이템들입니다.
-ship은 섬에서 탈출하기 위한 아이템입니다.
-house는 기본적으로 제공됩니다. 집에는 레벨이 존재하며, 집의 레벨을 올리면 행동력 수치가 증가합니다.
+When consumed, water, meat, and fruits temporarily restore thirst and hunger levels.
+Wood and stone are used to craft items for survival.
+stoneSword, stoneAxe, and stonePickAxe are items for survival.
+Ship is an item to escape from the island.
+house is provided by default. There are levels in the house, and as you level up the house, your behavioral power increases.

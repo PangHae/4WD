@@ -1,12 +1,12 @@
-게임에 관한 기본 설명입니다.
+This is the basic description of the game.
 
-플레이어는 무인도에 표류하게 된 사람입니다. 
+Players are the ones who have come to drift on a desert island.
 
-플레이어에게는 30일이 주어집니다. 이 기간 동안에 섬에서 살아 남으면서, 탈출해야합니다.
+Players are given 30 days. Surviving the island during this period, you must escape.
 
-탈출 방법에는 세 가지가 있습니다
-1. 연기로 배 또는 비행기에 구조요청
-2. 돌로 sos를 그려 비행기에 구조요청
-3. 직접 배를 제작해서 탈출
+There are three ways to escape
+1. Request for rescue from a ship or airplane due to smoke
+2. Draw a stone sos and ask the plane for rescue
+3. Build your own ship and escape
 
-위의 방법 중 하나로 섬을 탈출 하세요!
+Escape the island in one of the ways above!
